@@ -489,8 +489,8 @@ async function main() {
           article.imageUrl = imageUrl;
           console.log(`  ✓ ${article.perspective}: ${imageUrl}`);
         }
-        // Small delay between image generations to avoid rate limits
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        // Delay between image generations to avoid OpenAI rate limits (5 images/min on free tier)
+        await new Promise(resolve => setTimeout(resolve, 15000));
       }
     } else {
       console.log('\nOPENAI_API_KEY not set - skipping image generation');

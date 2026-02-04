@@ -72,4 +72,7 @@ jobs:
           ")
 
           git commit -m "Add article: $HEADLINE"
+
+          # Pull any remote changes and rebase before pushing
+          git pull --rebase origin main || true
           git push
