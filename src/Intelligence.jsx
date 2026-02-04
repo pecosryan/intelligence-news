@@ -6,6 +6,8 @@ import {
   saveEditionToLocal,
   loadEditionFromLocal,
   loadBestAvailableEdition,
+  loadArticlePool,
+  composeEditionFromPool,
   savePreferences,
   loadPreferences,
   getEditionHistory,
@@ -235,9 +237,22 @@ Return ONLY valid JSON, no other text.`;
   useEffect(() => {
     const loadInitial = async () => {
       setLoading(true);
-      setLoadingMessage('Loading saved edition...');
+      setLoadingMessage('Loading latest articles...');
 
       try {
+        // Try loading from article pool first (incremental system)
+        const pool = await loadArticlePool();
+        if (pool.articles && pool.articles.length > 0) {
+          const poolEdition = composeEditionFromPool(pool);
+          if (poolEdition) {
+            setArticles(poolEdition);
+            setLoading(false);
+            setLoadingMessage('');
+            return;
+          }
+        }
+
+        // Fall back to current-edition.json or localStorage
         const savedEdition = await loadBestAvailableEdition();
         if (savedEdition) {
           setArticles(savedEdition);
@@ -248,14 +263,14 @@ Return ONLY valid JSON, no other text.`;
           setLoading(false);
           setLoadingMessage('');
         } else {
-          // No saved edition, generate new one
+          // No saved edition, show empty state
           setLoading(false);
-          generateEdition();
+          setLoadingMessage('');
         }
       } catch (err) {
         console.error('Failed to load saved edition:', err);
         setLoading(false);
-        generateEdition();
+        setLoadingMessage('');
       }
     };
 

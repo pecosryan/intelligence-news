@@ -102,6 +102,65 @@ export function loadPreferences() {
   }
 }
 
+// ============ Article Pool Operations ============
+
+export async function loadArticlePool() {
+  try {
+    const response = await fetch(`${BASE_PATH}/articles/pool.json`);
+    if (!response.ok) {
+      if (response.status === 404) {
+        return { articles: [], config: { heroAge: 6, secondaryAge: 12, sidebarAge: 24, archiveAge: 48 } };
+      }
+      throw new Error(`HTTP ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Failed to load article pool:', error);
+    return { articles: [], config: { heroAge: 6, secondaryAge: 12, sidebarAge: 24, archiveAge: 48 } };
+  }
+}
+
+export function composeEditionFromPool(pool) {
+  const now = Date.now();
+  const config = pool.config || { heroAge: 6, secondaryAge: 12, sidebarAge: 24 };
+
+  // Sort articles by age (newest first)
+  const sorted = [...(pool.articles || [])].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+
+  if (sorted.length === 0) {
+    return null;
+  }
+
+  // Age thresholds in milliseconds
+  const heroThreshold = config.heroAge * 60 * 60 * 1000;
+  const secondaryThreshold = config.secondaryAge * 60 * 60 * 1000;
+  const sidebarThreshold = config.sidebarAge * 60 * 60 * 1000;
+
+  // Pick hero (newest article)
+  const hero = sorted[0];
+
+  // Pick secondary (next 2 articles)
+  const secondary = sorted.slice(1, 3);
+
+  // Pick sidebar (next 4 articles)
+  const sidebar = sorted.slice(3, 7);
+
+  return {
+    hero,
+    secondary,
+    sidebar,
+    quote: {
+      text: "The news never stops, but wisdom requires perspective.",
+      attribution: "Intelligence Editorial Board"
+    },
+    perspective: 'mixed',
+    publishedAt: pool.lastUpdated || new Date().toISOString(),
+    date: new Date().toISOString().split('T')[0],
+  };
+}
+
 // ============ JSON File Operations ============
 
 export async function loadCurrentEditionFromServer() {
@@ -242,6 +301,8 @@ export default {
   clearHistory,
   savePreferences,
   loadPreferences,
+  loadArticlePool,
+  composeEditionFromPool,
   loadCurrentEditionFromServer,
   loadArticleIndex,
   loadArchivedEdition,

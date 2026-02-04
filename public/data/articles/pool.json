@@ -1,0 +1,10 @@
+{
+  "articles": [],
+  "lastUpdated": null,
+  "config": {
+    "heroAge": 6,
+    "secondaryAge": 12,
+    "sidebarAge": 24,
+    "archiveAge": 48
+  }
+}
