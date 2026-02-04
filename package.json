@@ -1,0 +1,21 @@
+{
+    "name": "intelligence-news",
+    "version": "1.0.0",
+    "description": "An AI-generated newspaper with multiple editorial perspectives and visual themes",
+    "private": true,
+    "scripts": {
+          "dev": "vite",
+          "build": "vite build",
+          "preview": "vite preview"
+    },
+    "dependencies": {
+          "react": "^18.2.0",
+          "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+          "@types/react": "^18.2.0",
+          "@types/react-dom": "^18.2.0",
+          "@vitejs/plugin-react": "^4.2.0",
+          "vite": "^5.0.0"
+    }
+}
