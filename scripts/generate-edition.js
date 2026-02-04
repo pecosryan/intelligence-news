@@ -126,7 +126,7 @@ async function generateEdition(perspectiveKey = 'center') {
     [{ type: 'web_search_20250305', name: 'web_search' }]
   );
 
-  const searchContext = searchResponse.content
+  let searchContext = searchResponse.content
     ?.filter(block => block.type === 'text')
     ?.map(block => block.text)
     ?.join('\n\n') || '';
@@ -135,7 +135,14 @@ async function generateEdition(perspectiveKey = 'center') {
     throw new Error('No news results found');
   }
 
-  console.log('News context gathered, generating articles...');
+  // Truncate to stay under rate limits (~15k chars ≈ 4k tokens, leaving room for prompt)
+  const MAX_CONTEXT_CHARS = 15000;
+  if (searchContext.length > MAX_CONTEXT_CHARS) {
+    console.log(`Truncating search context from ${searchContext.length} to ${MAX_CONTEXT_CHARS} chars`);
+    searchContext = searchContext.substring(0, MAX_CONTEXT_CHARS) + '\n\n[Context truncated for length]';
+  }
+
+  console.log(`News context gathered (${searchContext.length} chars), generating articles...`);
 
   // Step 2: Generate articles
   const perspectiveInstructions = PERSPECTIVES[perspectiveKey]?.prompt || PERSPECTIVES.center.prompt;
