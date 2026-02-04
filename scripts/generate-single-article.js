@@ -40,6 +40,14 @@ const PERSPECTIVES = {
     name: 'Libertarian',
     prompt: 'Write from a libertarian perspective. Emphasize individual liberty, skepticism of government, and market solutions.',
   },
+  anarchist: {
+    name: 'Anarchist',
+    prompt: 'Write from an anarchist perspective. Question all hierarchies and authority. Emphasize mutual aid, direct action, and anti-establishment critique. Be provocative but substantive.',
+  },
+  accelerationist: {
+    name: 'Accelerationist',
+    prompt: 'Write from an accelerationist perspective. View events through technological determinism and phase transitions. Be detached, analytical, and future-oriented. Treat current events as symptoms of deeper systemic shifts.',
+  },
 };
 
 // Map perspectives to their primary persona for each category
@@ -70,6 +78,12 @@ const PERSONA_MAP = {
   },
   libertarian: {
     default: { id: 'sovereign', name: 'Sovereign' },
+  },
+  anarchist: {
+    default: { id: 'reckoner', name: 'Reckoner' },
+  },
+  accelerationist: {
+    default: { id: 'vector', name: 'Vector' },
   },
 };
 
