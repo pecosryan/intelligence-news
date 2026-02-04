@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PERSPECTIVES, PERSPECTIVE_COLORS, CATEGORIES } from './data/perspectives';
 import { THEMES, THEME_FONTS, FONT_LINKS } from './data/themes';
 import { PERSONAS, getPersonaForArticle } from './data/personas';
 import {
-  saveEditionToLocal,
-  loadEditionFromLocal,
   loadBestAvailableEdition,
   loadArticlePool,
   composeEditionFromPool,
@@ -65,175 +63,7 @@ export default function Intelligence() {
     });
   };
 
-  const generateEdition = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-    setArticles(null);
-
-    const loadingMessages = [
-      'Scanning global news wires...',
-      'Analyzing current events...',
-      'Interviewing sources...',
-      'Writing headlines...',
-      'Crafting the lede...',
-      'Fact-checking claims...',
-      'Setting the type...',
-      'Reviewing editorial standards...',
-      'Preparing for print...',
-    ];
-
-    let messageIndex = 0;
-    const messageInterval = setInterval(() => {
-      setLoadingMessage(loadingMessages[messageIndex % loadingMessages.length]);
-      messageIndex++;
-    }, 2500);
-
-    try {
-      // First, search for current news across categories
-      const searchPrompt = `Search for the most important and interesting news stories from today across these categories: World, Business, Technology, Politics, Science, and Culture. Focus on significant developments, breaking news, and stories with broad impact.`;
-
-      const searchResponse = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 8000,
-          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-          messages: [
-            {
-              role: 'user',
-              content: searchPrompt,
-            },
-          ],
-        }),
-      });
-
-      const searchData = await searchResponse.json();
-      
-      // Extract text content from search results
-      const searchContext = searchData.content
-        ?.filter((block) => block.type === 'text')
-        ?.map((block) => block.text)
-        ?.join('\n\n') || '';
-
-      if (!searchContext) {
-        throw new Error('No news results found');
-      }
-
-      // Now generate the newspaper articles based on the search results
-      const perspectiveInstructions = PERSPECTIVES[perspective].prompt;
-
-      // Build persona list for this perspective
-      const availablePersonas = Object.values(PERSONAS)
-        .filter(p => p.perspective === perspective || p.perspective === null)
-        .map(p => `- ${p.name} (${p.id}): ${p.bio} Voice: ${p.voicePrompt}`)
-        .join('\n');
-
-      const articlePrompt = `Based on the following current news information, generate a newspaper edition in JSON format.
-
-EDITORIAL PERSPECTIVE:
-${perspectiveInstructions}
-
-EDITORIAL PERSONAS (assign the most appropriate persona to each article based on category and tone):
-${availablePersonas}
-
-NEWS CONTEXT:
-${searchContext}
-
-Generate articles in this exact JSON structure:
-{
-  "hero": {
-    "category": "Category name (World, Business, Technology, Politics, Science, or Culture)",
-    "headline": "Compelling headline for the main story - should reflect the editorial perspective",
-    "persona": "persona_id (choose from available personas based on category match)",
-    "excerpt": "2-3 sentence excerpt that hooks the reader, framed through the editorial lens",
-    "fullText": "Full article text, 4-5 paragraphs. Write in proper journalistic style but with clear editorial voice matching the perspective and persona. Paragraphs separated by \\n\\n"
-  },
-  "secondary": [
-    {
-      "category": "Category",
-      "headline": "Secondary story headline reflecting editorial angle",
-      "persona": "persona_id",
-      "excerpt": "1-2 sentence excerpt",
-      "fullText": "Full article, 3-4 paragraphs separated by \\n\\n"
-    },
-    {
-      "category": "Category",
-      "headline": "Another secondary headline",
-      "persona": "persona_id",
-      "excerpt": "1-2 sentence excerpt",
-      "fullText": "Full article, 3-4 paragraphs separated by \\n\\n"
-    }
-  ],
-  "sidebar": [
-    {"category": "Category", "headline": "Brief headline 1", "persona": "persona_id"},
-    {"category": "Category", "headline": "Brief headline 2", "persona": "persona_id"},
-    {"category": "Category", "headline": "Brief headline 3", "persona": "persona_id"},
-    {"category": "Category", "headline": "Brief headline 4", "persona": "persona_id"}
-  ],
-  "quote": {
-    "text": "A quote that reflects the publication's editorial perspective - could be from a thinker, activist, or figure aligned with this worldview",
-    "attribution": "Person's name and title"
-  }
-}
-
-IMPORTANT GUIDELINES:
-- Use REAL news from the context provided
-- Write with the specified editorial voice and framing
-- Headlines should reflect the perspective's priorities and language
-- Choose which stories to emphasize based on what this perspective would find most important
-- The editorial angle should be clear but not cartoonish - write like a real publication with this viewpoint
-- All factual claims must be grounded in the search results, but framing and emphasis reflect the perspective
-- Assign personas based on their category expertise and voice style - match the persona to the story topic
-
-Return ONLY valid JSON, no other text.`;
-
-      const articleResponse = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 8000,
-          messages: [
-            {
-              role: 'user',
-              content: articlePrompt,
-            },
-          ],
-        }),
-      });
-
-      const articleData = await articleResponse.json();
-      const articleText = articleData.content?.[0]?.text || '';
-
-      // Parse JSON from response
-      const jsonMatch = articleText.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) {
-        throw new Error('Failed to parse article data');
-      }
-
-      const parsedArticles = JSON.parse(jsonMatch[0]);
-
-      // Add metadata and save to localStorage
-      const editionWithMeta = {
-        ...parsedArticles,
-        perspective,
-        generatedAt: new Date().toISOString(),
-      };
-      saveEditionToLocal(editionWithMeta);
-
-      setArticles(parsedArticles);
-    } catch (err) {
-      console.error('Generation error:', err);
-      setError(err.message || 'Failed to generate edition');
-    } finally {
-      clearInterval(messageInterval);
-      setLoading(false);
-      setLoadingMessage('');
-    }
-  }, [perspective]);
-
-  // Load saved edition on mount (or generate if none exists)
+  // Load saved edition on mount
   useEffect(() => {
     const loadInitial = async () => {
       setLoading(true);
@@ -494,23 +324,6 @@ Return ONLY valid JSON, no other text.`;
       fontFamily: fonts.meta,
       fontSize: '0.75rem',
       color: colors.textSecondary,
-    },
-    generateBtn: {
-      position: 'fixed',
-      bottom: '2rem',
-      right: '2rem',
-      padding: '1rem 1.5rem',
-      backgroundColor: accentColor,
-      color: 'white',
-      border: 'none',
-      fontFamily: fonts.meta,
-      fontSize: '0.75rem',
-      textTransform: 'uppercase',
-      letterSpacing: '0.1em',
-      cursor: 'pointer',
-      boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
-      transition: 'all 0.3s',
-      zIndex: 1000,
     },
     loading: {
       display: 'flex',
@@ -912,13 +725,11 @@ Return ONLY valid JSON, no other text.`;
             </div>
           ) : error ? (
             <div style={styles.errorBox}>
-              <p style={{ marginBottom: '1rem', color: accentColor }}>{error}</p>
-              <button
-                style={{ ...styles.generateBtn, position: 'static' }}
-                onClick={generateEdition}
-              >
-                Try Again
-              </button>
+              <p style={{ color: accentColor }}>{error}</p>
+            </div>
+          ) : !articles ? (
+            <div style={styles.errorBox}>
+              <p style={{ color: colors.textMuted }}>No articles yet. New content is generated automatically throughout the day.</p>
             </div>
           ) : articles ? (
             <>
@@ -1031,19 +842,6 @@ Return ONLY valid JSON, no other text.`;
           </p>
         </footer>
       </div>
-
-      {/* Generate Button */}
-      <button
-        style={{
-          ...styles.generateBtn,
-          opacity: loading ? 0.6 : 1,
-          cursor: loading ? 'not-allowed' : 'pointer',
-        }}
-        onClick={generateEdition}
-        disabled={loading}
-      >
-        {loading ? 'Generating...' : 'Generate New Edition'}
-      </button>
 
       {/* Article Modal */}
       {selectedArticle && (
