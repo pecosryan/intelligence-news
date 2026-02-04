@@ -601,6 +601,15 @@ export default function Intelligence() {
           >
             Archive
           </span>
+          <span
+            style={{ ...styles.navLink, cursor: 'pointer' }}
+            onClick={() => {
+              setShowArchive(true);
+              setTimeout(() => document.querySelector('input[placeholder="Search articles..."]')?.focus(), 100);
+            }}
+          >
+            🔍 Search
+          </span>
         </nav>
 
         {/* Main Content */}

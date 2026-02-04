@@ -96,9 +96,9 @@ export function savePreferences(prefs) {
 export function loadPreferences() {
   try {
     const saved = localStorage.getItem(STORAGE_KEYS.USER_PREFERENCES);
-    return saved ? JSON.parse(saved) : { theme: 'classic', perspective: 'center' };
+    return saved ? JSON.parse(saved) : { theme: 'modern', perspective: 'center' };
   } catch (error) {
-    return { theme: 'classic', perspective: 'center' };
+    return { theme: 'modern', perspective: 'center' };
   }
 }
 
