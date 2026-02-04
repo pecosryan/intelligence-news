@@ -2,6 +2,15 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { PERSPECTIVES, PERSPECTIVE_COLORS, CATEGORIES } from './data/perspectives';
 import { THEMES, THEME_FONTS, FONT_LINKS } from './data/themes';
 import { PERSONAS, getPersonaForArticle } from './data/personas';
+import {
+  saveEditionToLocal,
+  loadEditionFromLocal,
+  loadBestAvailableEdition,
+  savePreferences,
+  loadPreferences,
+  getEditionHistory,
+  searchArticlesInHistory,
+} from './services/storageService';
 
 // Inject fonts
 if (typeof document !== 'undefined' && !document.getElementById('intelligence-fonts')) {
@@ -13,14 +22,20 @@ if (typeof document !== 'undefined' && !document.getElementById('intelligence-fo
 }
 
 export default function Intelligence() {
-  const [theme, setTheme] = useState('classic');
-  const [perspective, setPerspective] = useState('center');
+  // Load initial preferences from localStorage
+  const initialPrefs = loadPreferences();
+
+  const [theme, setTheme] = useState(initialPrefs.theme || 'classic');
+  const [perspective, setPerspective] = useState(initialPrefs.perspective || 'center');
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(null);
   const [error, setError] = useState(null);
   const [showPerspectiveMenu, setShowPerspectiveMenu] = useState(false);
+  const [showArchive, setShowArchive] = useState(false);
+  const [archiveHistory, setArchiveHistory] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const colors = THEMES[theme];
   const fonts = THEME_FONTS[theme];
@@ -196,6 +211,15 @@ Return ONLY valid JSON, no other text.`;
       }
 
       const parsedArticles = JSON.parse(jsonMatch[0]);
+
+      // Add metadata and save to localStorage
+      const editionWithMeta = {
+        ...parsedArticles,
+        perspective,
+        generatedAt: new Date().toISOString(),
+      };
+      saveEditionToLocal(editionWithMeta);
+
       setArticles(parsedArticles);
     } catch (err) {
       console.error('Generation error:', err);
@@ -207,10 +231,48 @@ Return ONLY valid JSON, no other text.`;
     }
   }, [perspective]);
 
-  // Generate on mount
+  // Load saved edition on mount (or generate if none exists)
   useEffect(() => {
-    generateEdition();
+    const loadInitial = async () => {
+      setLoading(true);
+      setLoadingMessage('Loading saved edition...');
+
+      try {
+        const savedEdition = await loadBestAvailableEdition();
+        if (savedEdition) {
+          setArticles(savedEdition);
+          // Restore perspective if saved
+          if (savedEdition.perspective && PERSPECTIVES[savedEdition.perspective]) {
+            setPerspective(savedEdition.perspective);
+          }
+          setLoading(false);
+          setLoadingMessage('');
+        } else {
+          // No saved edition, generate new one
+          setLoading(false);
+          generateEdition();
+        }
+      } catch (err) {
+        console.error('Failed to load saved edition:', err);
+        setLoading(false);
+        generateEdition();
+      }
+    };
+
+    loadInitial();
   }, []);
+
+  // Save preferences when theme or perspective changes
+  useEffect(() => {
+    savePreferences({ theme, perspective });
+  }, [theme, perspective]);
+
+  // Load archive history when archive view is opened
+  useEffect(() => {
+    if (showArchive) {
+      setArchiveHistory(getEditionHistory());
+    }
+  }, [showArchive]);
 
   const styles = {
     container: {
@@ -693,11 +755,142 @@ Return ONLY valid JSON, no other text.`;
               {cat}
             </span>
           ))}
+          <span style={{ color: colors.ruleLight }}>|</span>
+          <span
+            style={{ ...styles.navLink, cursor: 'pointer', fontWeight: showArchive ? 600 : 400 }}
+            onClick={() => setShowArchive(!showArchive)}
+          >
+            Archive
+          </span>
         </nav>
 
         {/* Main Content */}
-        <main style={styles.mainGrid}>
-          {loading ? (
+        <main style={showArchive ? { ...styles.mainGrid, display: 'block' } : styles.mainGrid}>
+          {showArchive ? (
+            <div style={{ gridColumn: '1 / -1' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <h2 style={{ ...styles.headlineMedium, marginBottom: 0 }}>Archive</h2>
+                <button
+                  style={{
+                    background: 'none',
+                    border: `1px solid ${colors.rule}`,
+                    padding: '0.5rem 1rem',
+                    fontFamily: fonts.meta,
+                    fontSize: '0.75rem',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => setShowArchive(false)}
+                >
+                  Back to Current Edition
+                </button>
+              </div>
+
+              {/* Search */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  style={{
+                    width: '100%',
+                    maxWidth: '400px',
+                    padding: '0.75rem 1rem',
+                    fontFamily: fonts.body,
+                    fontSize: '0.9rem',
+                    border: `1px solid ${colors.rule}`,
+                    backgroundColor: colors.bgSecondary,
+                    color: colors.text,
+                  }}
+                />
+              </div>
+
+              {/* Archive List */}
+              {archiveHistory.length === 0 ? (
+                <p style={{ color: colors.textSecondary, fontStyle: 'italic' }}>
+                  No archived editions yet. Generate some editions to build your archive.
+                </p>
+              ) : (
+                <div>
+                  {archiveHistory
+                    .filter(edition => {
+                      if (!searchQuery) return true;
+                      const query = searchQuery.toLowerCase();
+                      const allText = [
+                        edition.hero?.headline,
+                        edition.hero?.excerpt,
+                        ...(edition.secondary || []).map(a => a.headline),
+                        ...(edition.secondary || []).map(a => a.excerpt),
+                      ].join(' ').toLowerCase();
+                      return allText.includes(query);
+                    })
+                    .map((edition, i) => (
+                      <div
+                        key={edition.savedAt || i}
+                        style={{
+                          padding: '1.5rem',
+                          marginBottom: '1rem',
+                          backgroundColor: colors.bgSecondary,
+                          border: `1px solid ${colors.ruleLight}`,
+                        }}
+                      >
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
+                          <div>
+                            <p style={{ ...styles.category, marginBottom: '0.25rem' }}>
+                              {new Date(edition.savedAt).toLocaleDateString('en-US', {
+                                weekday: 'long',
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                              })}
+                            </p>
+                            <p style={{ fontSize: '0.75rem', color: colors.textSecondary }}>
+                              {PERSPECTIVES[edition.perspective]?.name || 'Unknown'} perspective
+                            </p>
+                          </div>
+                          <button
+                            style={{
+                              background: accentColor,
+                              color: 'white',
+                              border: 'none',
+                              padding: '0.5rem 1rem',
+                              fontFamily: fonts.meta,
+                              fontSize: '0.7rem',
+                              textTransform: 'uppercase',
+                              cursor: 'pointer',
+                            }}
+                            onClick={() => {
+                              setArticles(edition);
+                              setPerspective(edition.perspective || 'center');
+                              setShowArchive(false);
+                            }}
+                          >
+                            View
+                          </button>
+                        </div>
+                        {edition.hero && (
+                          <div>
+                            <h3
+                              style={{ ...styles.headlineMedium, cursor: 'pointer' }}
+                              onClick={() => {
+                                setSelectedArticle(edition.hero);
+                              }}
+                            >
+                              {edition.hero.headline}
+                            </h3>
+                            <p style={{ fontSize: '0.85rem', color: colors.textSecondary }}>
+                              {edition.hero.excerpt}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
+          ) : loading ? (
             <div style={styles.loading}>
               <div style={styles.spinner} />
               <p style={styles.loadingText}>{loadingMessage || 'Gathering Intelligence...'}</p>
