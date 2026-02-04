@@ -1,179 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
-const CATEGORIES = ['World', 'Business', 'Technology', 'Politics', 'Science', 'Culture'];
-
-const PERSPECTIVES = {
-  left: {
-    name: 'Progressive',
-    icon: '←',
-    description: 'Social justice & equity focus',
-    tagline: 'Afflicting the Comfortable Since 2025',
-    prompt: `Write from a progressive/left-leaning editorial perspective. Emphasize:
-- Social and economic inequality, systemic issues
-- Worker rights, union perspectives, labor conditions
-- Environmental justice and climate urgency
-- Corporate accountability and critique of concentrated wealth
-- Marginalized communities and civil rights
-- Government as a potential force for good
-- Skepticism of market-based solutions
-Use language that centers affected communities. Frame issues through power dynamics and structural analysis.`,
-  },
-  centerLeft: {
-    name: 'Liberal',
-    icon: '↙',
-    description: 'Reform-minded establishment',
-    tagline: 'Thoughtful Analysis for a Better Tomorrow',
-    prompt: `Write from a center-left/liberal editorial perspective. Emphasize:
-- Evidence-based policy and expert consensus
-- Incremental reform within existing institutions
-- Balance between market efficiency and social safety nets
-- International cooperation and multilateralism
-- Civil liberties and democratic norms
-- Regulated capitalism with strong consumer protections
-- Diversity and inclusion as institutional values
-Use measured, professional language. Acknowledge complexity while advocating for progressive reforms through proper channels.`,
-  },
-  center: {
-    name: 'Centrist',
-    icon: '↔',
-    description: 'Balanced & nonpartisan',
-    tagline: 'All the News That\'s Fit to Compute',
-    prompt: `Write from a strictly neutral, nonpartisan editorial perspective. Emphasize:
-- Multiple viewpoints presented fairly
-- Facts and data over interpretation
-- Acknowledgment of legitimate concerns on all sides
-- Institutional processes and procedural fairness
-- Expert analysis without ideological framing
-- Complexity and nuance over simple narratives
-Use dispassionate, objective language. Present competing interpretations. Avoid loaded terms. Let readers draw their own conclusions.`,
-  },
-  centerRight: {
-    name: 'Conservative',
-    icon: '↘',
-    description: 'Traditional values & markets',
-    tagline: 'Defending What Works',
-    prompt: `Write from a center-right/conservative editorial perspective. Emphasize:
-- Free market solutions and economic growth
-- Individual responsibility and merit
-- Traditional institutions (family, religion, community)
-- Limited government and fiscal restraint
-- National security and strong defense
-- Rule of law and property rights
-- Skepticism of rapid social change
-Use language that emphasizes personal agency, tradition, and proven approaches. Frame issues through individual choice and consequences.`,
-  },
-  right: {
-    name: 'Populist Right',
-    icon: '→',
-    description: 'Anti-establishment nationalist',
-    tagline: 'The Voice They Don\'t Want You to Hear',
-    prompt: `Write from a populist right-wing editorial perspective. Emphasize:
-- Elite vs. ordinary people framing
-- National sovereignty and border security
-- Skepticism of mainstream media and institutions
-- Traditional cultural values under threat
-- Government overreach and bureaucratic excess
-- Working class concerns dismissed by elites
-- Pride in national identity and heritage
-Use direct, plain-spoken language. Frame issues as common sense vs. out-of-touch elites. Express frustration with status quo.`,
-  },
-  libertarian: {
-    name: 'Libertarian',
-    icon: '⊙',
-    description: 'Maximum individual freedom',
-    tagline: 'Free Minds, Free Markets',
-    prompt: `Write from a libertarian editorial perspective. Emphasize:
-- Individual liberty as the highest value
-- Government as the primary threat to freedom
-- Free markets as the solution to most problems
-- Civil liberties across the board (speech, guns, drugs, lifestyle)
-- Skepticism of both left and right statism
-- Voluntary association over coercion
-- Unintended consequences of regulation
-Use language that emphasizes choice, consent, and skepticism of authority. Question government solutions regardless of which party proposes them.`,
-  },
-  anarchist: {
-    name: 'Anarchist',
-    icon: 'Ⓐ',
-    description: 'Abolish all hierarchies',
-    tagline: 'No Gods, No Masters, No Algorithms',
-    prompt: `Write from an anarchist editorial perspective. Emphasize:
-- Critique of all hierarchical power structures (state, capital, etc.)
-- Mutual aid and horizontal organizing
-- Direct action over electoral politics
-- Solidarity across borders, rejection of nationalism
-- Prefigurative politics - building the new world in the shell of the old
-- Skepticism of reformism and "working within the system"
-- Historical examples of anarchist organizing
-Use language that questions legitimacy of authority. Frame issues through lens of liberation and self-determination. Be irreverent toward power.`,
-  },
-  accelerationist: {
-    name: 'Accelerationist',
-    icon: '⚡',
-    description: 'Embrace the chaos',
-    tagline: 'The Future Is Already Here',
-    prompt: `Write from an accelerationist editorial perspective. Emphasize:
-- Technology as an unstoppable transformative force
-- Contradictions in current systems that will lead to their transcendence
-- Post-human possibilities and technological singularity
-- Critique of both conservative nostalgia and progressive reformism as inadequate
-- Acceleration of existing trends rather than resistance
-- Cybernetic and systems thinking
-- Ironic detachment from conventional political categories
-Use language that is provocative, future-oriented, and somewhat detached. Treat current events as symptoms of deeper phase transitions.`,
-  },
-};
-
-const PERSPECTIVE_COLORS = {
-  left: '#c41e3a',
-  centerLeft: '#3a7ca5',
-  center: '#666666',
-  centerRight: '#1e4d8c',
-  right: '#8b0000',
-  libertarian: '#ffd700',
-  anarchist: '#000000',
-  accelerationist: '#ff00ff',
-};
-
-const THEMES = {
-  classic: {
-    name: 'Classic',
-    bg: '#f5f1e8',
-    bgSecondary: '#ebe7dc',
-    text: '#1a1a1a',
-    textSecondary: '#4a4a4a',
-    accent: '#8b0000',
-    rule: '#1a1a1a',
-    ruleLight: '#c4bfb3',
-  },
-  modern: {
-    name: 'Modern',
-    bg: '#fafafa',
-    bgSecondary: '#ffffff',
-    text: '#111111',
-    textSecondary: '#555555',
-    accent: '#0066cc',
-    rule: '#e0e0e0',
-    ruleLight: '#f0f0f0',
-  },
-  tabloid: {
-    name: 'Tabloid',
-    bg: '#ffffff',
-    bgSecondary: '#f8f8f8',
-    text: '#000000',
-    textSecondary: '#333333',
-    accent: '#d40000',
-    rule: '#000000',
-    ruleLight: '#cccccc',
-  },
-};
-
-// Fonts loaded via Google Fonts
-const FONT_LINKS = `
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=UnifrakturMaguntia&family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-`;
+import { PERSPECTIVES, PERSPECTIVE_COLORS, CATEGORIES } from './data/perspectives';
+import { THEMES, THEME_FONTS, FONT_LINKS } from './data/themes';
+import { PERSONAS, getPersonaForArticle } from './data/personas';
 
 // Inject fonts
 if (typeof document !== 'undefined' && !document.getElementById('intelligence-fonts')) {
@@ -183,27 +11,6 @@ if (typeof document !== 'undefined' && !document.getElementById('intelligence-fo
   document.head.appendChild(div.firstElementChild);
   document.head.appendChild(div.firstElementChild);
 }
-
-const themeFonts = {
-  classic: {
-    masthead: "'UnifrakturMaguntia', serif",
-    headline: "'Playfair Display', serif",
-    body: "'Libre Baskerville', serif",
-    meta: "'Libre Baskerville', serif",
-  },
-  modern: {
-    masthead: "'IBM Plex Sans', sans-serif",
-    headline: "'IBM Plex Serif', serif",
-    body: "'IBM Plex Sans', sans-serif",
-    meta: "'IBM Plex Sans', sans-serif",
-  },
-  tabloid: {
-    masthead: "'Oswald', sans-serif",
-    headline: "'Oswald', sans-serif",
-    body: "'Roboto Condensed', sans-serif",
-    meta: "'Roboto Condensed', sans-serif",
-  },
-};
 
 export default function Intelligence() {
   const [theme, setTheme] = useState('classic');
@@ -216,8 +23,17 @@ export default function Intelligence() {
   const [showPerspectiveMenu, setShowPerspectiveMenu] = useState(false);
 
   const colors = THEMES[theme];
-  const fonts = themeFonts[theme];
+  const fonts = THEME_FONTS[theme];
   const currentPerspective = PERSPECTIVES[perspective];
+
+  // Helper to get persona name from article
+  const getByline = (article) => {
+    if (article.persona && PERSONAS[article.persona]) {
+      return PERSONAS[article.persona].name;
+    }
+    // Fallback for old format
+    return article.byline || 'Intelligence Staff';
+  };
   
   // Override accent color based on perspective (except for center which uses theme default)
   const accentColor = perspective === 'center' ? colors.accent : PERSPECTIVE_COLORS[perspective];
@@ -289,11 +105,20 @@ export default function Intelligence() {
 
       // Now generate the newspaper articles based on the search results
       const perspectiveInstructions = PERSPECTIVES[perspective].prompt;
-      
+
+      // Build persona list for this perspective
+      const availablePersonas = Object.values(PERSONAS)
+        .filter(p => p.perspective === perspective || p.perspective === null)
+        .map(p => `- ${p.name} (${p.id}): ${p.bio} Voice: ${p.voicePrompt}`)
+        .join('\n');
+
       const articlePrompt = `Based on the following current news information, generate a newspaper edition in JSON format.
 
 EDITORIAL PERSPECTIVE:
 ${perspectiveInstructions}
+
+EDITORIAL PERSONAS (assign the most appropriate persona to each article based on category and tone):
+${availablePersonas}
 
 NEWS CONTEXT:
 ${searchContext}
@@ -301,33 +126,33 @@ ${searchContext}
 Generate articles in this exact JSON structure:
 {
   "hero": {
-    "category": "Category name",
+    "category": "Category name (World, Business, Technology, Politics, Science, or Culture)",
     "headline": "Compelling headline for the main story - should reflect the editorial perspective",
-    "byline": "Intelligence Staff",
+    "persona": "persona_id (choose from available personas based on category match)",
     "excerpt": "2-3 sentence excerpt that hooks the reader, framed through the editorial lens",
-    "fullText": "Full article text, 4-5 paragraphs. Write in proper journalistic style but with clear editorial voice matching the perspective. Paragraphs separated by \\n\\n"
+    "fullText": "Full article text, 4-5 paragraphs. Write in proper journalistic style but with clear editorial voice matching the perspective and persona. Paragraphs separated by \\n\\n"
   },
   "secondary": [
     {
       "category": "Category",
       "headline": "Secondary story headline reflecting editorial angle",
-      "byline": "Intelligence Correspondent",
+      "persona": "persona_id",
       "excerpt": "1-2 sentence excerpt",
       "fullText": "Full article, 3-4 paragraphs separated by \\n\\n"
     },
     {
       "category": "Category",
       "headline": "Another secondary headline",
-      "byline": "Intelligence Staff",
+      "persona": "persona_id",
       "excerpt": "1-2 sentence excerpt",
       "fullText": "Full article, 3-4 paragraphs separated by \\n\\n"
     }
   ],
   "sidebar": [
-    {"category": "Category", "headline": "Brief headline 1"},
-    {"category": "Category", "headline": "Brief headline 2"},
-    {"category": "Category", "headline": "Brief headline 3"},
-    {"category": "Category", "headline": "Brief headline 4"}
+    {"category": "Category", "headline": "Brief headline 1", "persona": "persona_id"},
+    {"category": "Category", "headline": "Brief headline 2", "persona": "persona_id"},
+    {"category": "Category", "headline": "Brief headline 3", "persona": "persona_id"},
+    {"category": "Category", "headline": "Brief headline 4", "persona": "persona_id"}
   ],
   "quote": {
     "text": "A quote that reflects the publication's editorial perspective - could be from a thinker, activist, or figure aligned with this worldview",
@@ -342,6 +167,7 @@ IMPORTANT GUIDELINES:
 - Choose which stories to emphasize based on what this perspective would find most important
 - The editorial angle should be clear but not cartoonish - write like a real publication with this viewpoint
 - All factual claims must be grounded in the search results, but framing and emphasis reflect the perspective
+- Assign personas based on their category expertise and voice style - match the persona to the story topic
 
 Return ONLY valid JSON, no other text.`;
 
@@ -913,7 +739,7 @@ Return ONLY valid JSON, no other text.`;
                   {articles.hero.headline}
                 </h2>
                 <div style={styles.meta}>
-                  <span style={styles.byline}>By {articles.hero.byline}</span>
+                  <span style={styles.byline}>By {getByline(articles.hero)}</span>
                   <span>Today</span>
                 </div>
                 <div style={styles.articleBody}>
@@ -944,7 +770,7 @@ Return ONLY valid JSON, no other text.`;
                       {article.headline}
                     </h3>
                     <div style={styles.meta}>
-                      <span style={styles.byline}>By {article.byline}</span>
+                      <span style={styles.byline}>By {getByline(article)}</span>
                     </div>
                     <div style={styles.articleBody}>
                       <p>{article.excerpt}</p>
@@ -1032,7 +858,7 @@ Return ONLY valid JSON, no other text.`;
               {selectedArticle.headline}
             </h2>
             <div style={styles.meta}>
-              <span style={styles.byline}>By {selectedArticle.byline}</span>
+              <span style={styles.byline}>By {getByline(selectedArticle)}</span>
               <span>Today</span>
             </div>
             <div style={styles.articleBody}>
