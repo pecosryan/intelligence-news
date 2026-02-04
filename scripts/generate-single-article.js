@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Generate a single article for Intelligence News
- * Designed to run frequently (every 2-3 hours) with minimal API usage
+ * Generate articles from multiple perspectives on the same news story
+ * Each run produces one article per perspective, showing editorial diversity
  *
  * Usage:
  *   ANTHROPIC_API_KEY=xxx node scripts/generate-single-article.js
@@ -14,43 +14,70 @@ const path = require('path');
 
 const CATEGORIES = ['World', 'Business', 'Technology', 'Politics', 'Science', 'Culture'];
 
+// All perspectives with their editorial voice
 const PERSPECTIVES = {
-  left: { name: 'Progressive', prompt: 'Write from a progressive perspective emphasizing social justice and equity.' },
-  centerLeft: { name: 'Liberal', prompt: 'Write from a center-left perspective emphasizing evidence-based policy.' },
-  center: { name: 'Centrist', prompt: 'Write from a neutral, balanced perspective presenting multiple viewpoints.' },
-  centerRight: { name: 'Conservative', prompt: 'Write from a center-right perspective emphasizing free markets and tradition.' },
-  right: { name: 'Populist Right', prompt: 'Write from a populist right perspective emphasizing common sense values.' },
-  libertarian: { name: 'Libertarian', prompt: 'Write from a libertarian perspective emphasizing individual liberty.' },
+  center: {
+    name: 'Centrist',
+    prompt: 'Write from a neutral, balanced perspective. Present multiple viewpoints fairly. Use dispassionate, objective language.',
+  },
+  centerLeft: {
+    name: 'Liberal',
+    prompt: 'Write from a center-left perspective. Emphasize evidence-based policy, expert consensus, and incremental reform.',
+  },
+  centerRight: {
+    name: 'Conservative',
+    prompt: 'Write from a center-right perspective. Emphasize free markets, tradition, fiscal restraint, and individual responsibility.',
+  },
+  left: {
+    name: 'Progressive',
+    prompt: 'Write from a progressive perspective. Emphasize social justice, equity, worker rights, and systemic issues. Center affected communities.',
+  },
+  right: {
+    name: 'Populist Right',
+    prompt: 'Write from a populist right perspective. Use plain language. Frame as common sense vs elite disconnect. Champion working-class concerns.',
+  },
+  libertarian: {
+    name: 'Libertarian',
+    prompt: 'Write from a libertarian perspective. Emphasize individual liberty, skepticism of government, and market solutions.',
+  },
 };
 
-const PERSONAS = {
-  World: [
-    { id: 'meridian', name: 'Meridian', perspective: 'center' },
-    { id: 'sentinel', name: 'Sentinel', perspective: 'centerRight' },
-  ],
-  Business: [
-    { id: 'sterling', name: 'Sterling', perspective: 'centerRight' },
-    { id: 'fulcrum', name: 'Fulcrum', perspective: 'center' },
-    { id: 'sovereign', name: 'Sovereign', perspective: 'libertarian' },
-  ],
-  Technology: [
-    { id: 'caliber', name: 'Caliber', perspective: 'centerLeft' },
-    { id: 'fulcrum', name: 'Fulcrum', perspective: 'center' },
-  ],
-  Politics: [
-    { id: 'meridian', name: 'Meridian', perspective: 'center' },
-    { id: 'vanguard', name: 'Vanguard', perspective: 'left' },
-    { id: 'tribune', name: 'Tribune', perspective: 'right' },
-    { id: 'sentinel', name: 'Sentinel', perspective: 'centerRight' },
-  ],
-  Science: [
-    { id: 'caliber', name: 'Caliber', perspective: 'centerLeft' },
-  ],
-  Culture: [
-    { id: 'vanguard', name: 'Vanguard', perspective: 'left' },
-    { id: 'tribune', name: 'Tribune', perspective: 'right' },
-  ],
+// Map perspectives to their primary persona for each category
+const PERSONA_MAP = {
+  center: {
+    default: { id: 'fulcrum', name: 'Fulcrum' },
+    World: { id: 'meridian', name: 'Meridian' },
+    Politics: { id: 'meridian', name: 'Meridian' },
+  },
+  centerLeft: {
+    default: { id: 'caliber', name: 'Caliber' },
+    World: { id: 'horizon', name: 'Horizon' },
+    Culture: { id: 'horizon', name: 'Horizon' },
+  },
+  centerRight: {
+    default: { id: 'sterling', name: 'Sterling' },
+    Politics: { id: 'sentinel', name: 'Sentinel' },
+    World: { id: 'sentinel', name: 'Sentinel' },
+  },
+  left: {
+    default: { id: 'vanguard', name: 'Vanguard' },
+    Science: { id: 'ember', name: 'Ember' },
+    World: { id: 'ember', name: 'Ember' },
+  },
+  right: {
+    default: { id: 'tribune', name: 'Tribune' },
+    World: { id: 'rampart', name: 'Rampart' },
+  },
+  libertarian: {
+    default: { id: 'sovereign', name: 'Sovereign' },
+  },
 };
+
+function getPersonaForPerspective(perspective, category) {
+  const map = PERSONA_MAP[perspective];
+  if (!map) return { id: 'dispatch', name: 'Dispatch' };
+  return map[category] || map.default;
+}
 
 async function callClaude(messages, tools = null) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
@@ -60,7 +87,7 @@ async function callClaude(messages, tools = null) {
 
   const body = {
     model: 'claude-sonnet-4-20250514',
-    max_tokens: 2000, // Reduced for single article
+    max_tokens: 4000,
     messages,
   };
 
@@ -87,51 +114,31 @@ async function callClaude(messages, tools = null) {
 }
 
 function selectCategory(existingArticles) {
-  // Pick category with oldest/fewest articles
   const categoryCounts = {};
-  const categoryAges = {};
   const now = Date.now();
 
   for (const cat of CATEGORIES) {
     categoryCounts[cat] = 0;
-    categoryAges[cat] = Infinity;
   }
 
+  // Count recent articles (last 24 hours) per category
   for (const article of existingArticles) {
-    if (article.category && CATEGORIES.includes(article.category)) {
-      categoryCounts[article.category]++;
-      const age = now - new Date(article.publishedAt).getTime();
-      categoryAges[article.category] = Math.min(categoryAges[article.category], age);
+    const age = now - new Date(article.publishedAt).getTime();
+    if (age < 24 * 60 * 60 * 1000 && article.category) {
+      categoryCounts[article.category] = (categoryCounts[article.category] || 0) + 1;
     }
   }
 
-  // Prioritize categories with fewer recent articles
-  const sorted = CATEGORIES.sort((a, b) => {
-    // First by count (fewer is better)
-    if (categoryCounts[a] !== categoryCounts[b]) {
-      return categoryCounts[a] - categoryCounts[b];
-    }
-    // Then by age (older is better - needs refresh)
-    return categoryAges[b] - categoryAges[a];
-  });
-
+  // Pick category with fewest recent articles
+  const sorted = CATEGORIES.sort((a, b) => categoryCounts[a] - categoryCounts[b]);
   return sorted[0];
 }
 
-function selectPersona(category) {
-  const options = PERSONAS[category] || PERSONAS.World;
-  return options[Math.floor(Math.random() * options.length)];
-}
+async function searchNews(category) {
+  console.log(`Searching for ${category} news...`);
 
-async function generateArticle(category, persona) {
-  console.log(`Generating ${category} article by ${persona.name}...`);
+  const searchPrompt = `Find ONE important ${category.toLowerCase()} news story from today. Focus on significant breaking news or major developments that would be interesting to analyze from multiple political perspectives.`;
 
-  const perspective = PERSPECTIVES[persona.perspective] || PERSPECTIVES.center;
-
-  // Step 1: Quick news search (very focused)
-  const searchPrompt = `Find ONE important ${category.toLowerCase()} news story from today. Focus on significant breaking news or major developments.`;
-
-  console.log('Searching for news...');
   const searchResponse = await callClaude(
     [{ role: 'user', content: searchPrompt }],
     [{ type: 'web_search_20250305', name: 'web_search' }]
@@ -146,57 +153,94 @@ async function generateArticle(category, persona) {
     throw new Error('No news results found');
   }
 
-  // Heavily truncate - we only need enough for 1 article
-  const MAX_CONTEXT = 3000;
+  // Truncate to reasonable size
+  const MAX_CONTEXT = 4000;
   if (searchContext.length > MAX_CONTEXT) {
     searchContext = searchContext.substring(0, MAX_CONTEXT) + '\n[truncated]';
   }
 
-  console.log(`Context: ${searchContext.length} chars`);
-
-  // Wait to respect rate limits
-  console.log('Waiting 30 seconds for rate limit...');
-  await new Promise(resolve => setTimeout(resolve, 30000));
-
-  // Step 2: Generate single article
-  const articlePrompt = `Based on this news, write ONE article.
-
-CATEGORY: ${category}
-BYLINE: ${persona.name}
-PERSPECTIVE: ${perspective.prompt}
-
-NEWS:
-${searchContext}
-
-Return JSON only:
-{
-  "headline": "Compelling headline (max 100 chars)",
-  "excerpt": "2-3 sentence summary",
-  "fullText": "Full article, 3-4 paragraphs separated by \\n\\n"
+  console.log(`News context: ${searchContext.length} chars`);
+  return searchContext;
 }
 
-Write with the specified editorial voice. Facts must come from the news provided.
-Return ONLY valid JSON.`;
+async function generateAllPerspectives(category, newsContext) {
+  const perspectiveKeys = Object.keys(PERSPECTIVES);
 
-  const articleResponse = await callClaude([{ role: 'user', content: articlePrompt }]);
-  const articleText = articleResponse.content?.[0]?.text || '';
+  console.log(`\nGenerating ${perspectiveKeys.length} articles from different perspectives...`);
 
-  const jsonMatch = articleText.match(/\{[\s\S]*\}/);
+  // Build the prompt to generate all perspectives at once
+  const perspectiveInstructions = perspectiveKeys.map(key => {
+    const p = PERSPECTIVES[key];
+    const persona = getPersonaForPerspective(key, category);
+    return `
+### ${key.toUpperCase()} (Byline: ${persona.name})
+${p.prompt}`;
+  }).join('\n');
+
+  const prompt = `Based on this news story, write ${perspectiveKeys.length} SHORT articles - one from each editorial perspective. Each article should cover the SAME story but with different framing, emphasis, and voice.
+
+CATEGORY: ${category}
+
+NEWS CONTEXT:
+${newsContext}
+
+PERSPECTIVES TO WRITE:
+${perspectiveInstructions}
+
+Return a JSON array with exactly ${perspectiveKeys.length} articles:
+[
+  {
+    "perspective": "center",
+    "headline": "Neutral headline (max 80 chars)",
+    "excerpt": "1-2 sentence neutral summary",
+    "fullText": "2-3 paragraphs with balanced analysis"
+  },
+  {
+    "perspective": "centerLeft",
+    "headline": "Liberal-leaning headline",
+    "excerpt": "1-2 sentence summary emphasizing reform",
+    "fullText": "2-3 paragraphs from center-left view"
+  },
+  ... (continue for all ${perspectiveKeys.length} perspectives)
+]
+
+IMPORTANT:
+- Each article must have a DIFFERENT headline reflecting its perspective
+- Same facts, different framing and emphasis
+- Keep articles concise (2-3 paragraphs each)
+- Return ONLY valid JSON array`;
+
+  const response = await callClaude([{ role: 'user', content: prompt }]);
+  const text = response.content?.[0]?.text || '';
+
+  // Parse JSON array from response
+  const jsonMatch = text.match(/\[[\s\S]*\]/);
   if (!jsonMatch) {
-    throw new Error('Failed to parse article JSON');
+    throw new Error('Failed to parse articles JSON');
   }
 
-  const articleData = JSON.parse(jsonMatch[0]);
+  const articlesData = JSON.parse(jsonMatch[0]);
 
-  return {
-    id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-    ...articleData,
-    category,
-    persona: persona.id,
-    personaName: persona.name,
-    perspective: persona.perspective,
-    publishedAt: new Date().toISOString(),
-  };
+  // Build full article objects
+  const now = new Date();
+  const articles = articlesData.map((article, index) => {
+    const perspectiveKey = article.perspective || perspectiveKeys[index];
+    const persona = getPersonaForPerspective(perspectiveKey, category);
+
+    return {
+      id: `${Date.now()}-${perspectiveKey}-${Math.random().toString(36).substr(2, 6)}`,
+      headline: article.headline,
+      excerpt: article.excerpt,
+      fullText: article.fullText,
+      category,
+      persona: persona.id,
+      personaName: persona.name,
+      perspective: perspectiveKey,
+      publishedAt: new Date(now.getTime() - index * 1000).toISOString(), // Stagger by 1 second
+    };
+  });
+
+  return articles;
 }
 
 function loadPool() {
@@ -222,35 +266,15 @@ function composeEdition(pool) {
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
-  // Age thresholds in milliseconds
-  const heroThreshold = config.heroAge * 60 * 60 * 1000;
-  const secondaryThreshold = config.secondaryAge * 60 * 60 * 1000;
-  const sidebarThreshold = config.sidebarAge * 60 * 60 * 1000;
+  // Remove articles older than archive threshold
   const archiveThreshold = config.archiveAge * 60 * 60 * 1000;
-
-  // Categorize by age
-  const hero = sorted.find(a => now - new Date(a.publishedAt).getTime() < heroThreshold);
-  const secondary = sorted
-    .filter(a => {
-      const age = now - new Date(a.publishedAt).getTime();
-      return age >= heroThreshold && age < secondaryThreshold && a !== hero;
-    })
-    .slice(0, 2);
-  const sidebar = sorted
-    .filter(a => {
-      const age = now - new Date(a.publishedAt).getTime();
-      return age >= secondaryThreshold && age < sidebarThreshold && !secondary.includes(a) && a !== hero;
-    })
-    .slice(0, 4);
-
-  // Remove articles older than archive threshold from pool
   const activeArticles = sorted.filter(a => now - new Date(a.publishedAt).getTime() < archiveThreshold);
 
-  // Build edition
+  // Build edition - newest first
   const edition = {
-    hero: hero || sorted[0] || null,
-    secondary: secondary.length ? secondary : sorted.slice(1, 3),
-    sidebar: sidebar.length ? sidebar : sorted.slice(3, 7),
+    hero: sorted[0] || null,
+    secondary: sorted.slice(1, 3),
+    sidebar: sorted.slice(3, 7),
     quote: {
       text: "The news never stops, but wisdom requires perspective.",
       attribution: "Intelligence Editorial Board"
@@ -288,23 +312,30 @@ async function main() {
     const pool = loadPool();
     console.log(`Pool has ${pool.articles.length} existing articles`);
 
-    // Select category (either specified or auto-selected)
+    // Select category
     const category = targetCategory || selectCategory(pool.articles);
     console.log(`Selected category: ${category}`);
 
-    // Select persona for this category
-    const persona = selectPersona(category);
-    console.log(`Selected persona: ${persona.name} (${persona.perspective})`);
+    // Search for news (one API call)
+    const newsContext = await searchNews(category);
 
-    // Generate article
-    const article = await generateArticle(category, persona);
-    console.log(`Generated: "${article.headline}"`);
+    // Wait for rate limit
+    console.log('Waiting 30 seconds for rate limit...');
+    await new Promise(resolve => setTimeout(resolve, 30000));
+
+    // Generate all perspectives (one API call)
+    const articles = await generateAllPerspectives(category, newsContext);
+
+    console.log(`\nGenerated ${articles.length} articles:`);
+    articles.forEach(a => {
+      console.log(`  - [${a.perspective}] ${a.personaName}: "${a.headline.substring(0, 50)}..."`);
+    });
 
     // Add to pool
-    pool.articles.push(article);
+    pool.articles.push(...articles);
     pool.lastUpdated = new Date().toISOString();
 
-    // Compose edition from pool and clean old articles
+    // Compose edition and clean old articles
     const { edition, activeArticles } = composeEdition(pool);
     pool.articles = activeArticles;
 
@@ -316,6 +347,7 @@ async function main() {
     console.log(`  Hero: ${edition.hero?.headline || 'None'}`);
     console.log(`  Secondary: ${edition.secondary?.length || 0} articles`);
     console.log(`  Sidebar: ${edition.sidebar?.length || 0} articles`);
+    console.log(`  Total in pool: ${pool.articles.length}`);
 
   } catch (error) {
     console.error('Failed:', error.message);
