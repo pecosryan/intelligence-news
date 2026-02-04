@@ -120,23 +120,23 @@ export async function loadArticlePool() {
   }
 }
 
-export function composeEditionFromPool(pool) {
-  const now = Date.now();
+export function composeEditionFromPool(pool, perspectiveFilter = null) {
   const config = pool.config || { heroAge: 6, secondaryAge: 12, sidebarAge: 24 };
 
-  // Sort articles by age (newest first)
-  const sorted = [...(pool.articles || [])].sort(
+  // Filter articles by perspective if specified
+  let articles = [...(pool.articles || [])];
+  if (perspectiveFilter) {
+    articles = articles.filter(a => a.perspective === perspectiveFilter);
+  }
+
+  // Sort by age (newest first)
+  const sorted = articles.sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
   if (sorted.length === 0) {
     return null;
   }
-
-  // Age thresholds in milliseconds
-  const heroThreshold = config.heroAge * 60 * 60 * 1000;
-  const secondaryThreshold = config.secondaryAge * 60 * 60 * 1000;
-  const sidebarThreshold = config.sidebarAge * 60 * 60 * 1000;
 
   // Pick hero (newest article)
   const hero = sorted[0];
@@ -155,7 +155,7 @@ export function composeEditionFromPool(pool) {
       text: "The news never stops, but wisdom requires perspective.",
       attribution: "Intelligence Editorial Board"
     },
-    perspective: 'mixed',
+    perspective: perspectiveFilter || 'mixed',
     publishedAt: pool.lastUpdated || new Date().toISOString(),
     date: new Date().toISOString().split('T')[0],
   };

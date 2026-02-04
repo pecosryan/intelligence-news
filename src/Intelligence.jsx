@@ -63,7 +63,10 @@ export default function Intelligence() {
     });
   };
 
-  // Load saved edition on mount
+  // Store pool for filtering by perspective
+  const [articlePool, setArticlePool] = useState(null);
+
+  // Load article pool on mount
   useEffect(() => {
     const loadInitial = async () => {
       setLoading(true);
@@ -73,7 +76,9 @@ export default function Intelligence() {
         // Try loading from article pool first (incremental system)
         const pool = await loadArticlePool();
         if (pool.articles && pool.articles.length > 0) {
-          const poolEdition = composeEditionFromPool(pool);
+          setArticlePool(pool);
+          // Compose edition filtered by current perspective
+          const poolEdition = composeEditionFromPool(pool, perspective);
           if (poolEdition) {
             setArticles(poolEdition);
             setLoading(false);
@@ -86,10 +91,6 @@ export default function Intelligence() {
         const savedEdition = await loadBestAvailableEdition();
         if (savedEdition) {
           setArticles(savedEdition);
-          // Restore perspective if saved
-          if (savedEdition.perspective && PERSPECTIVES[savedEdition.perspective]) {
-            setPerspective(savedEdition.perspective);
-          }
           setLoading(false);
           setLoadingMessage('');
         } else {
@@ -106,6 +107,16 @@ export default function Intelligence() {
 
     loadInitial();
   }, []);
+
+  // Re-compose edition when perspective changes
+  useEffect(() => {
+    if (articlePool && articlePool.articles && articlePool.articles.length > 0) {
+      const filteredEdition = composeEditionFromPool(articlePool, perspective);
+      if (filteredEdition) {
+        setArticles(filteredEdition);
+      }
+    }
+  }, [perspective, articlePool]);
 
   // Save preferences when theme or perspective changes
   useEffect(() => {
