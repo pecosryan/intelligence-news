@@ -37,6 +37,7 @@ jobs:
       - name: Generate single article
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           CATEGORY="${{ github.event.inputs.category || 'auto' }}"
           if [ "$CATEGORY" = "auto" ]; then
@@ -52,8 +53,9 @@ jobs:
           git config user.name "Intelligence Bot"
           git config user.email "bot@intelligence.news"
 
-          # Add generated files
+          # Add generated files (articles and images)
           git add public/data/articles/
+          git add public/images/articles/ 2>/dev/null || true
 
           # Check if there are changes to commit
           if git diff --staged --quiet; then

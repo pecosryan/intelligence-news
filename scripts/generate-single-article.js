@@ -5,12 +5,13 @@
  * Each run produces one article per perspective, showing editorial diversity
  *
  * Usage:
- *   ANTHROPIC_API_KEY=xxx node scripts/generate-single-article.js
- *   ANTHROPIC_API_KEY=xxx node scripts/generate-single-article.js --category Technology
+ *   ANTHROPIC_API_KEY=xxx OPENAI_API_KEY=xxx node scripts/generate-single-article.js
+ *   ANTHROPIC_API_KEY=xxx OPENAI_API_KEY=xxx node scripts/generate-single-article.js --category Technology
  */
 
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 
 const CATEGORIES = ['World', 'Business', 'Technology', 'Politics', 'Science', 'Culture'];
 
@@ -91,6 +92,139 @@ function getPersonaForPerspective(perspective, category) {
   const map = PERSONA_MAP[perspective];
   if (!map) return { id: 'dispatch', name: 'Dispatch' };
   return map[category] || map.default;
+}
+
+// Image style prompts for each perspective - these modify how the same news event is visually depicted
+const IMAGE_STYLES = {
+  center: {
+    style: 'Photojournalistic, neutral composition. Documentary style with balanced framing. Clean, professional news photography aesthetic.',
+    mood: 'objective, measured, informative',
+  },
+  centerLeft: {
+    style: 'Hopeful, forward-looking imagery. Bright natural lighting. Emphasis on human progress and cooperation. Modern, clean aesthetic.',
+    mood: 'optimistic, evidence-based, institutional',
+  },
+  centerRight: {
+    style: 'Traditional, dignified composition. Classic photography style. Emphasis on established institutions and order. Professional, conservative aesthetic.',
+    mood: 'stable, prosperous, orderly',
+  },
+  left: {
+    style: 'People-centered, grassroots perspective. Warm, humanizing light. Focus on community and solidarity. Street photography aesthetic.',
+    mood: 'empathetic, urgent, community-focused',
+  },
+  right: {
+    style: 'Bold, patriotic imagery. Strong contrasts. Working-class perspective. Americana aesthetic with emphasis on tradition and strength.',
+    mood: 'proud, defiant, common-sense',
+  },
+  libertarian: {
+    style: 'Individual-focused, wide open spaces. Emphasis on freedom and personal choice. Minimal government presence. Independent, self-reliant aesthetic.',
+    mood: 'free, independent, skeptical',
+  },
+  anarchist: {
+    style: 'Gritty, street-level perspective. High contrast, raw aesthetic. Anti-establishment imagery. Punk/zine visual style with DIY energy.',
+    mood: 'rebellious, questioning, radical',
+  },
+  accelerationist: {
+    style: 'Futuristic, abstract, technological. Glitch aesthetics, digital artifacts. Cold, analytical perspective. Cyberpunk-influenced with phase transition imagery.',
+    mood: 'detached, inevitable, transformative',
+  },
+};
+
+async function generateImage(headline, perspective, storyContext) {
+  const openaiKey = process.env.OPENAI_API_KEY;
+  if (!openaiKey) {
+    console.log('OPENAI_API_KEY not set, skipping image generation');
+    return null;
+  }
+
+  const style = IMAGE_STYLES[perspective] || IMAGE_STYLES.center;
+
+  const prompt = `News illustration for headline: "${headline}"
+
+Visual style: ${style.style}
+Mood: ${style.mood}
+
+Create a compelling editorial illustration suitable for a news article. No text or words in the image. Photorealistic or high-quality editorial illustration style.`;
+
+  console.log(`  Generating image for ${perspective}...`);
+
+  try {
+    const response = await fetch('https://api.openai.com/v1/images/generations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${openaiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'dall-e-3',
+        prompt: prompt,
+        n: 1,
+        size: '1792x1024',
+        quality: 'standard',
+      }),
+    });
+
+    if (!response.ok) {
+      const error = await response.text();
+      console.error(`  Image generation failed for ${perspective}: ${error}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const imageUrl = data.data?.[0]?.url;
+
+    if (!imageUrl) {
+      console.error(`  No image URL returned for ${perspective}`);
+      return null;
+    }
+
+    // Download and save the image locally
+    const imageFileName = `${Date.now()}-${perspective}.png`;
+    const imagePath = await downloadImage(imageUrl, imageFileName);
+
+    return imagePath;
+  } catch (error) {
+    console.error(`  Image generation error for ${perspective}:`, error.message);
+    return null;
+  }
+}
+
+async function downloadImage(url, fileName) {
+  const imagesDir = path.join(__dirname, '..', 'public', 'images', 'articles');
+
+  // Ensure directory exists
+  if (!fs.existsSync(imagesDir)) {
+    fs.mkdirSync(imagesDir, { recursive: true });
+  }
+
+  const filePath = path.join(imagesDir, fileName);
+
+  return new Promise((resolve, reject) => {
+    const file = fs.createWriteStream(filePath);
+
+    https.get(url, (response) => {
+      // Handle redirect
+      if (response.statusCode === 301 || response.statusCode === 302) {
+        https.get(response.headers.location, (redirectResponse) => {
+          redirectResponse.pipe(file);
+          file.on('finish', () => {
+            file.close();
+            resolve(`/images/articles/${fileName}`);
+          });
+        }).on('error', reject);
+        return;
+      }
+
+      response.pipe(file);
+      file.on('finish', () => {
+        file.close();
+        resolve(`/images/articles/${fileName}`);
+      });
+    }).on('error', (err) => {
+      fs.unlink(filePath, () => {}); // Delete partial file
+      reject(err);
+    });
+  });
 }
 
 async function callClaude(messages, tools = null) {
@@ -235,7 +369,7 @@ IMPORTANT:
 
   const articlesData = JSON.parse(jsonMatch[0]);
 
-  // Build full article objects
+  // Build full article objects (without images first)
   const now = new Date();
   const articles = articlesData.map((article, index) => {
     const perspectiveKey = article.perspective || perspectiveKeys[index];
@@ -251,10 +385,11 @@ IMPORTANT:
       personaName: persona.name,
       perspective: perspectiveKey,
       publishedAt: new Date(now.getTime() - index * 1000).toISOString(), // Stagger by 1 second
+      imageUrl: null, // Will be populated if image generation is enabled
     };
   });
 
-  return articles;
+  return { articles, newsContext };
 }
 
 function loadPool() {
@@ -338,12 +473,28 @@ async function main() {
     await new Promise(resolve => setTimeout(resolve, 30000));
 
     // Generate all perspectives (one API call)
-    const articles = await generateAllPerspectives(category, newsContext);
+    const { articles, newsContext: storyContext } = await generateAllPerspectives(category, newsContext);
 
     console.log(`\nGenerated ${articles.length} articles:`);
     articles.forEach(a => {
       console.log(`  - [${a.perspective}] ${a.personaName}: "${a.headline.substring(0, 50)}..."`);
     });
+
+    // Generate images for each perspective (if OPENAI_API_KEY is set)
+    if (process.env.OPENAI_API_KEY) {
+      console.log('\nGenerating images for each perspective...');
+      for (const article of articles) {
+        const imageUrl = await generateImage(article.headline, article.perspective, storyContext);
+        if (imageUrl) {
+          article.imageUrl = imageUrl;
+          console.log(`  ✓ ${article.perspective}: ${imageUrl}`);
+        }
+        // Small delay between image generations to avoid rate limits
+        await new Promise(resolve => setTimeout(resolve, 2000));
+      }
+    } else {
+      console.log('\nOPENAI_API_KEY not set - skipping image generation');
+    }
 
     // Add to pool
     pool.articles.push(...articles);

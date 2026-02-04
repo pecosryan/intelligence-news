@@ -746,19 +746,35 @@ export default function Intelligence() {
             <>
               {/* Hero Article */}
               <article>
-                <div style={styles.imagePlaceholder}>
-                  <span
-                    style={{
-                      fontFamily: fonts.meta,
-                      fontSize: '0.75rem',
-                      color: colors.textSecondary,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    {articles.hero.category}
-                  </span>
-                </div>
+                {articles.hero.imageUrl ? (
+                  <div style={{ marginBottom: '1rem' }}>
+                    <img
+                      src={articles.hero.imageUrl}
+                      alt={articles.hero.headline}
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        maxHeight: '400px',
+                        objectFit: 'cover',
+                        border: `1px solid ${colors.ruleLight}`,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div style={styles.imagePlaceholder}>
+                    <span
+                      style={{
+                        fontFamily: fonts.meta,
+                        fontSize: '0.75rem',
+                        color: colors.textSecondary,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.1em',
+                      }}
+                    >
+                      {articles.hero.category}
+                    </span>
+                  </div>
+                )}
                 <p style={styles.category}>{articles.hero.category}</p>
                 <h2
                   style={styles.headlineHero}
@@ -861,6 +877,20 @@ export default function Intelligence() {
             <button style={styles.modalClose} onClick={() => setSelectedArticle(null)}>
               ×
             </button>
+            {selectedArticle.imageUrl && (
+              <div style={{ marginBottom: '1.5rem', marginTop: '-1rem' }}>
+                <img
+                  src={selectedArticle.imageUrl}
+                  alt={selectedArticle.headline}
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    maxHeight: '300px',
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+            )}
             <p style={styles.category}>{selectedArticle.category}</p>
             <h2
               style={{
