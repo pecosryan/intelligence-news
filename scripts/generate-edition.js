@@ -135,14 +135,19 @@ async function generateEdition(perspectiveKey = 'center') {
     throw new Error('No news results found');
   }
 
-  // Truncate to stay under rate limits (~15k chars ≈ 4k tokens, leaving room for prompt)
-  const MAX_CONTEXT_CHARS = 15000;
+  // Truncate to stay under rate limits (~8k chars ≈ 2k tokens, leaving room for prompt)
+  // New accounts have 30k token/min limit, need to be conservative
+  const MAX_CONTEXT_CHARS = 8000;
   if (searchContext.length > MAX_CONTEXT_CHARS) {
     console.log(`Truncating search context from ${searchContext.length} to ${MAX_CONTEXT_CHARS} chars`);
     searchContext = searchContext.substring(0, MAX_CONTEXT_CHARS) + '\n\n[Context truncated for length]';
   }
 
   console.log(`News context gathered (${searchContext.length} chars), generating articles...`);
+
+  // Wait 60 seconds between API calls to respect rate limits on new accounts
+  console.log('Waiting 60 seconds for rate limit reset...');
+  await new Promise(resolve => setTimeout(resolve, 60000));
 
   // Step 2: Generate articles
   const perspectiveInstructions = PERSPECTIVES[perspectiveKey]?.prompt || PERSPECTIVES.center.prompt;
