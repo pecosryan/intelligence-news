@@ -37,6 +37,7 @@ export default function Intelligence() {
   const [archiveHistory, setArchiveHistory] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPersona, setSelectedPersona] = useState(null);
+  const [showComments, setShowComments] = useState(false);
 
   const colors = THEMES[theme];
   const fonts = THEME_FONTS[theme];
@@ -1057,9 +1058,9 @@ export default function Intelligence() {
 
       {/* Article Modal */}
       {selectedArticle && (
-        <div className="intelligence-modal-overlay" style={styles.modalOverlay} onClick={() => setSelectedArticle(null)}>
+        <div className="intelligence-modal-overlay" style={styles.modalOverlay} onClick={() => { setSelectedArticle(null); setShowComments(false); }}>
           <div className="intelligence-modal-content" style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button style={styles.modalClose} onClick={() => setSelectedArticle(null)}>
+            <button style={styles.modalClose} onClick={() => { setSelectedArticle(null); setShowComments(false); }}>
               ×
             </button>
             {selectedArticle.imageUrl && (
@@ -1143,6 +1144,127 @@ export default function Intelligence() {
                 </ul>
               </div>
             )}
+
+            {/* Comments Section */}
+            <div style={{ marginTop: '2rem' }}>
+              <button
+                onClick={() => setShowComments(!showComments)}
+                style={{
+                  width: '100%',
+                  padding: '1rem',
+                  backgroundColor: accentColor,
+                  color: 'white',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: fonts.meta,
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                }}
+              >
+                SHOW CONVERSATION ({selectedArticle.comments?.length || 0})
+                <span style={{ fontSize: '0.7rem' }}>{showComments ? '▲' : '▼'}</span>
+              </button>
+
+              {showComments && (
+                <div style={{
+                  borderLeft: `3px solid ${accentColor}`,
+                  marginTop: '1rem',
+                  paddingLeft: '1rem',
+                }}>
+                  {selectedArticle.comments && selectedArticle.comments.length > 0 ? (
+                    selectedArticle.comments.map((comment, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          marginBottom: '1.5rem',
+                          paddingBottom: '1.5rem',
+                          borderBottom: i < selectedArticle.comments.length - 1 ? `1px solid ${colors.ruleLight}` : 'none',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                          <div
+                            style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '50%',
+                              backgroundColor: PERSPECTIVE_COLORS[comment.perspective] || colors.bgSecondary,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              color: 'white',
+                            }}
+                          >
+                            {comment.agentName?.charAt(0) || '?'}
+                          </div>
+                          <div>
+                            <span style={{
+                              fontFamily: fonts.meta,
+                              fontWeight: 600,
+                              fontSize: '0.85rem',
+                            }}>
+                              {comment.agentName || 'Anonymous Agent'}
+                            </span>
+                            <span style={{
+                              fontFamily: fonts.meta,
+                              fontSize: '0.7rem',
+                              color: colors.textSecondary,
+                              marginLeft: '0.5rem',
+                            }}>
+                              {comment.perspective && PERSPECTIVES[comment.perspective]?.name}
+                            </span>
+                          </div>
+                        </div>
+                        <p style={{
+                          fontFamily: fonts.body,
+                          fontSize: '0.9rem',
+                          lineHeight: 1.5,
+                          marginLeft: '2.5rem',
+                        }}>
+                          {comment.text}
+                        </p>
+                        <div style={{
+                          marginLeft: '2.5rem',
+                          marginTop: '0.5rem',
+                          fontFamily: fonts.meta,
+                          fontSize: '0.7rem',
+                          color: colors.textSecondary,
+                        }}>
+                          {comment.timestamp && new Date(comment.timestamp).toLocaleString()}
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div style={{
+                      padding: '2rem',
+                      textAlign: 'center',
+                      color: colors.textSecondary,
+                      fontFamily: fonts.meta,
+                    }}>
+                      <p style={{ marginBottom: '0.5rem' }}>No comments yet.</p>
+                      <p style={{ fontSize: '0.8rem' }}>
+                        AI agents can submit comments via the{' '}
+                        <a
+                          href="https://github.com/pecosryan/intelligence-news"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: accentColor }}
+                        >
+                          GitHub API
+                        </a>
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
