@@ -1,97 +1,250 @@
 {
   "hero": {
-    "id": "puff-anniversary-2026-center",
-    "headline": "Unbelievably Lucky Man Approaches 10 Years With His Wife",
-    "excerpt": "Butt ages like fine wine.",
-    "fullText": "In what statisticians are calling an extraordinary outlier event, an unbelievably lucky man is approaching a decade with a woman whose posterior has, by all measurable accounts, aged like a particularly exceptional vintage. The couple met in 2016 and married in 2019, meaning he has now spent ten years in a state of continuous gratitude.\n\nFriends of the couple report that the man frequently acknowledges his good fortune, often unprompted. \"He brings it up constantly,\" noted one source close to the family. \"At dinner parties, at work, in line at the grocery store. The man knows what he has.\"\n\nPhotographic evidence spanning the couple's relationship confirms what witnesses have long observed: whatever forces govern the universe have smiled upon this particular union. The wife, described by all who know her as both accomplished and aesthetically blessed, has reportedly only improved with time.\n\n\"Ten years together, seven married—that's a long time,\" observed marriage researcher Dr. Patricia Welling. \"Most things depreciate. Some things, apparently, do not.\"\n\nThe man was unavailable for comment, as he was too busy being grateful.",
-    "category": "Culture",
-    "persona": "chronicle",
-    "personaName": "Chronicle",
+    "id": "1770283282311-center-462hvm",
+    "headline": "SpaceX Acquires xAI in Record $1.25 Trillion Merger",
+    "excerpt": "Elon Musk combines rocket and AI companies in history's largest merger, raising questions about innovation benefits and regulatory oversight.",
+    "fullText": "SpaceX's acquisition of xAI for $1.25 trillion represents the largest corporate merger in history, combining Musk's rocket company with his artificial intelligence startup ahead of SpaceX's anticipated IPO later this year. The deal creates a vertically integrated space-AI conglomerate valued at over $1 trillion.\n\nMusk outlined ambitious plans for space-based AI computing infrastructure, estimating it could become the most cost-effective approach within 2-3 years. SpaceX has requested FCC authorization for up to 1 million satellites as part of proposed 'orbital data centers.'\n\nThe merger faces regulatory scrutiny due to xAI's recent controversies involving inappropriate AI-generated content and SpaceX's extensive defense contracts. Industry experts note both potential innovation benefits and antitrust concerns, while federal agencies review national security implications of consolidating critical space and AI capabilities under single ownership.",
+    "category": "Technology",
+    "persona": "fulcrum",
+    "personaName": "Fulcrum",
     "perspective": "center",
-    "publishedAt": "2026-02-05T14:00:00.000Z",
-    "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+    "publishedAt": "2026-02-05T09:21:22.311Z",
+    "imageUrl": "/images/articles/1770283302497-center.png",
+    "sources": [
+      {
+        "title": "Latest Technology News and Reviews - Yahoo Finance",
+        "url": "https://finance.yahoo.com/topic/tech/"
+      },
+      {
+        "title": "Tech | CNN Business",
+        "url": "https://www.cnn.com/business/tech"
+      },
+      {
+        "title": "SciTechDaily - Science, Space and Technology News 2026",
+        "url": "https://scitechdaily.com/"
+      },
+      {
+        "title": "Tech Xplore - Technology and Engineering news",
+        "url": "https://techxplore.com/"
+      },
+      {
+        "title": "MIT Technology Review",
+        "url": "https://www.technologyreview.com/"
+      }
+    ]
   },
   "secondary": [
     {
-      "id": "puff-anniversary-2026-centerLeft",
-      "headline": "Decade-Long Partnership Demonstrates Power of Mutual Respect and Good Genetics",
-      "excerpt": "Research suggests egalitarian marriages produce better outcomes. This couple is evidence.",
-      "fullText": "A man celebrating nearly ten years together—having met in 2016 and married in 2019—has become an unlikely case study in the benefits of partnership, mutual respect, and what scientists delicately refer to as 'favorable genetic expression in the gluteal region.'\n\nRelationship researchers note that successful long-term partnerships require ongoing communication, shared values, and an appreciation for one's partner. This man, by all accounts, has mastered the appreciation component.\n\n\"The data is clear that couples who express gratitude last longer,\" observed Dr. Michelle Torres, a relationship psychologist. \"This man expresses gratitude about his wife's physique with a frequency we rarely see in academic literature.\"\n\nThe wife, who maintains her own successful career while apparently defying conventional aging patterns, represents the kind of partner equity that modern relationships aspire to. Sources confirm she finds her husband's ongoing enthusiasm 'sweet, if occasionally excessive.'\n\nThe couple plans to celebrate their upcoming anniversary privately, as the husband's luck is not something he takes for granted.",
-      "category": "Culture",
-      "persona": "horizon",
-      "personaName": "Horizon",
+      "id": "1770283282311-centerLeft-91gsiq",
+      "headline": "Musk Mega-Merger Demands Immediate Regulatory Response",
+      "excerpt": "The unprecedented consolidation of space and AI technologies under one controversial entrepreneur requires robust oversight to protect public interests.",
+      "fullText": "The SpaceX-xAI merger represents exactly the kind of unchecked corporate consolidation that demands immediate regulatory intervention. Combining critical space infrastructure with AI capabilities under Elon Musk's control concentrates unprecedented power in the hands of someone whose companies already face serious regulatory violations.\n\nxAI's recent failures to prevent the generation of child exploitation material through its Grok AI system highlight the urgent need for stronger AI governance frameworks. Meanwhile, SpaceX's billions in defense contracts raise national security concerns about foreign influence and technology transfer when merged with AI capabilities.\n\nCongress and international regulators must act swiftly to establish comprehensive oversight mechanisms. The European Union's AI Act and proposed space governance frameworks provide models for ensuring this merger serves public interests rather than just shareholder profits. Without proper guardrails, this consolidation risks creating a technological monopoly that could undermine both market competition and democratic accountability.",
+      "category": "Technology",
+      "persona": "caliber",
+      "personaName": "Caliber",
       "perspective": "centerLeft",
-      "publishedAt": "2026-02-05T13:59:00.000Z",
-      "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+      "publishedAt": "2026-02-05T09:21:21.311Z",
+      "imageUrl": "/images/articles/1770283335226-centerLeft.png",
+      "sources": [
+        {
+          "title": "Latest Technology News and Reviews - Yahoo Finance",
+          "url": "https://finance.yahoo.com/topic/tech/"
+        },
+        {
+          "title": "Tech | CNN Business",
+          "url": "https://www.cnn.com/business/tech"
+        },
+        {
+          "title": "SciTechDaily - Science, Space and Technology News 2026",
+          "url": "https://scitechdaily.com/"
+        },
+        {
+          "title": "Tech Xplore - Technology and Engineering news",
+          "url": "https://techxplore.com/"
+        },
+        {
+          "title": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/"
+        }
+      ]
     },
     {
-      "id": "puff-anniversary-2026-centerRight",
-      "headline": "Traditional Marriage Thrives: Local Man Counts Blessings Approaching Tenth Anniversary",
-      "excerpt": "In an age of disposable relationships, one couple proves commitment still works.",
-      "fullText": "As modern society increasingly treats relationships as disposable, one man approaching ten years together with his wife stands as testament to the enduring value of traditional marriage—and the timeless appreciation of a wife who has aged, in his words, 'like fine wine, particularly in the hindquarters department.'\n\nThe couple met in 2016 through mutual friends rather than an algorithm, and married in 2019. They represent the kind of lasting union that forms the bedrock of stable communities. The husband's continued devotion to his wife reflects values that transcend passing trends.\n\n\"He married well and he knows it,\" observed a family friend. \"He works hard, provides for his family, and thanks God every day for his good fortune. That's how it's supposed to work.\"\n\nThe wife, described as both a devoted partner and strikingly well-preserved, reportedly maintains her figure through a combination of good habits and what the husband can only describe as 'divine intervention.'\n\nTheir upcoming anniversary celebration will honor both the institution of marriage and, apparently, certain immutable physical blessings.",
-      "category": "Culture",
-      "persona": "sentinel",
-      "personaName": "Sentinel",
+      "id": "1770283282311-centerRight-avkvlh",
+      "headline": "American Innovation Leads as SpaceX-xAI Creates Global Tech Giant",
+      "excerpt": "Historic merger demonstrates American entrepreneurship and technological leadership, though reasonable oversight ensures responsible development.",
+      "fullText": "The SpaceX-xAI merger showcases American innovation at its finest, creating a vertically integrated technology powerhouse that will maintain U.S. leadership in the critical sectors of space exploration and artificial intelligence. Elon Musk's vision of space-based computing represents the kind of bold entrepreneurship that has always driven American economic growth.\n\nThis consolidation makes strategic sense from both business and national security perspectives. Rather than allowing foreign competitors to dominate emerging technologies, America benefits when our most innovative companies achieve the scale necessary to compete globally. SpaceX's proven track record in reducing launch costs and advancing space technology, combined with xAI's AI capabilities, creates synergies that serve national interests.\n\nWhile appropriate regulatory review is warranted, policymakers should avoid the kind of heavy-handed intervention that stifles innovation. Market forces and existing oversight frameworks provide sufficient protection against potential abuses. The real focus should be ensuring this American technological champion can compete effectively against state-backed competitors from China and elsewhere.",
+      "category": "Technology",
+      "persona": "sterling",
+      "personaName": "Sterling",
       "perspective": "centerRight",
-      "publishedAt": "2026-02-05T13:58:00.000Z",
-      "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+      "publishedAt": "2026-02-05T09:21:20.311Z",
+      "imageUrl": "/images/articles/1770283363662-centerRight.png",
+      "sources": [
+        {
+          "title": "Latest Technology News and Reviews - Yahoo Finance",
+          "url": "https://finance.yahoo.com/topic/tech/"
+        },
+        {
+          "title": "Tech | CNN Business",
+          "url": "https://www.cnn.com/business/tech"
+        },
+        {
+          "title": "SciTechDaily - Science, Space and Technology News 2026",
+          "url": "https://scitechdaily.com/"
+        },
+        {
+          "title": "Tech Xplore - Technology and Engineering news",
+          "url": "https://techxplore.com/"
+        },
+        {
+          "title": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/"
+        }
+      ]
     }
   ],
   "sidebar": [
     {
-      "id": "puff-anniversary-2026-left",
-      "headline": "Man Celebrates Wife as Whole Person, Also Her Butt",
-      "excerpt": "In a world that objectifies women, one husband's appreciation somehow feels... wholesome?",
-      "fullText": "An unbelievably lucky man approaching ten years with his wife—they met in 2016 and married in 2019—has navigated the complex terrain of appreciating his wife's physical attributes while also, sources confirm, respecting her as a complete human being with thoughts, feelings, and professional accomplishments. It's a delicate balance he appears to have mastered.\n\n\"He definitely notices—you can't miss it honestly—but he also talks about her career achievements, her intelligence, her kindness,\" reported a friend. \"It's like he married an actual person he finds both intellectually stimulating AND physically attractive. Revolutionary concept, apparently.\"\n\nThe wife, who holds her own professional credentials and maintains bodily autonomy over her famously well-aged posterior, has given enthusiastic consent to her husband's ongoing appreciation. \"He asked if it was okay to be this publicly grateful,\" she confirmed. \"I said yes. It's nice to be appreciated.\"\n\nCritics argue that any focus on physical attributes is problematic, but the couple appears to have constructed a relationship where mutual admiration flows in multiple directions. Sometimes a butt that ages like fine wine is just a butt that ages like fine wine.",
-      "category": "Culture",
+      "id": "1770283282311-left-qucu3a",
+      "headline": "Billionaire's Space Empire Threatens Workers, Democracy",
+      "excerpt": "Musk's unprecedented power grab consolidates critical infrastructure under one oligarch while workers and communities bear the costs.",
+      "fullText": "Elon Musk's $1.25 trillion power grab represents everything wrong with our oligarchic system—one billionaire now controls critical space infrastructure, AI technology, and social media platforms that shape global communications. This isn't innovation; it's the dangerous consolidation of power that threatens democratic governance and worker rights.\n\nWhile Musk profits from taxpayer-funded contracts and subsidies, SpaceX workers face union-busting tactics and dangerous working conditions. The company's environmental impact devastates frontline communities, particularly around launch sites in South Texas where predominantly Latino residents suffer noise, pollution, and displacement. Now adding AI capabilities only amplifies these harms through potential job displacement and surveillance.\n\nThis merger exposes the fundamental injustice of allowing private billionaires to control technologies that should belong to humanity. Space exploration and AI development require massive public investment—they should serve public needs, not private profit. We need to break up these monopolies, democratize technology development, and ensure that the benefits of human innovation serve working people rather than enriching oligarchs who exploit our labor and resources.",
+      "category": "Technology",
       "persona": "vanguard",
       "personaName": "Vanguard",
       "perspective": "left",
-      "publishedAt": "2026-02-05T13:57:00.000Z",
-      "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+      "publishedAt": "2026-02-05T09:21:19.311Z",
+      "imageUrl": "/images/articles/1770283394816-left.png",
+      "sources": [
+        {
+          "title": "Latest Technology News and Reviews - Yahoo Finance",
+          "url": "https://finance.yahoo.com/topic/tech/"
+        },
+        {
+          "title": "Tech | CNN Business",
+          "url": "https://www.cnn.com/business/tech"
+        },
+        {
+          "title": "SciTechDaily - Science, Space and Technology News 2026",
+          "url": "https://scitechdaily.com/"
+        },
+        {
+          "title": "Tech Xplore - Technology and Engineering news",
+          "url": "https://techxplore.com/"
+        },
+        {
+          "title": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/"
+        }
+      ]
     },
     {
-      "id": "puff-anniversary-2026-right",
-      "headline": "Man Marries Beautiful Woman, Stays Married, Remains Grateful: Media Baffled",
-      "excerpt": "In a world that hates traditional families, this guy just keeps winning.",
-      "fullText": "While Hollywood celebrities cycle through marriages faster than most people change their oil, one regular American man is approaching ten years with the same woman—they met in 2016, married in 2019—and her assets have, in his estimation, only appreciated over time. The mainstream media doesn't know what to do with this information.\n\n\"He married a beautiful woman, he's still married to her, and he's still crazy about her,\" shrugged one friend. \"I don't understand why this is confusing to people. This is how it used to work.\"\n\nThe wife, who reportedly looks better now than she did a decade ago (particularly from certain angles), has stood by her husband through thick and thin. They go to church. They raise their kids. They don't post about their relationship drama because they don't have any.\n\n\"He tells me I'm beautiful every day,\" the wife confirmed. \"And he means it. Meanwhile my friends are swiping through dating apps trying to find someone who'll text them back.\"\n\nThe couple plans to celebrate their anniversary doing something normal people do, not whatever Instagram influencers think counts as romance.",
-      "category": "Culture",
+      "id": "1770283282311-right-uunrbc",
+      "headline": "Musk Builds American Space Dominance Despite Swamp Opposition",
+      "excerpt": "While bureaucrats nitpick, Elon Musk creates jobs and secures America's technological future against foreign competitors.",
+      "fullText": "Once again, Elon Musk proves that American ingenuity trumps government bureaucracy. While Washington swamp creatures and their media allies attack this historic merger, Musk is busy securing America's dominance in space and AI—the technologies that will determine our nation's future prosperity and security.\n\nThe same establishment that can't fix our roads or balance a budget now wants to micromanage the man who revolutionized electric vehicles, transformed space exploration, and exposed Big Tech censorship. Musk's companies employ hundreds of thousands of Americans and deliver results that government agencies can only dream of. His space-based computing vision will create countless jobs while keeping America ahead of China.\n\nPredictably, the regulatory deep state is already circling with their investigations and red tape. These are the same bureaucrats who tried to ground SpaceX over 'environmental concerns' while China launched rockets every week. Regular Americans understand that we need innovators like Musk fighting for our technological independence, not more government interference that only helps our competitors.",
+      "category": "Technology",
       "persona": "tribune",
       "personaName": "Tribune",
       "perspective": "right",
-      "publishedAt": "2026-02-05T13:56:00.000Z",
-      "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+      "publishedAt": "2026-02-05T09:21:18.311Z",
+      "imageUrl": "/images/articles/1770283426403-right.png",
+      "sources": [
+        {
+          "title": "Latest Technology News and Reviews - Yahoo Finance",
+          "url": "https://finance.yahoo.com/topic/tech/"
+        },
+        {
+          "title": "Tech | CNN Business",
+          "url": "https://www.cnn.com/business/tech"
+        },
+        {
+          "title": "SciTechDaily - Science, Space and Technology News 2026",
+          "url": "https://scitechdaily.com/"
+        },
+        {
+          "title": "Tech Xplore - Technology and Engineering news",
+          "url": "https://techxplore.com/"
+        },
+        {
+          "title": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/"
+        }
+      ]
     },
     {
-      "id": "puff-anniversary-2026-libertarian",
-      "headline": "Man's Private Marriage Yields Private Benefits, Government Not Involved",
-      "excerpt": "Free association produces mutual satisfaction. No permits required for admiration.",
-      "fullText": "An unbelievably lucky man is approaching ten years of a voluntary arrangement with a woman whose physical attributes have appreciated in ways the free market would describe as 'exceptional returns on investment.' They met in 2016 and formalized their contractual arrangement in 2019. No government program produced this outcome.\n\nThe marriage, entered into freely by two consenting adults, has generated what economists call 'mutual utility maximization'—he is happy, she is happy, and neither required a bureaucrat to tell them how to achieve this state.\n\n\"The state didn't make her butt age like fine wine,\" the husband observed philosophically. \"That was genetics and personal choices. The state also didn't make me appreciate it. That's called freedom.\"\n\nThe wife, who maintains her remarkable physique through her own volition rather than government fitness mandates, reportedly appreciates that her husband's admiration is genuine rather than compelled. \"He doesn't compliment me because some HR policy requires it,\" she noted. \"He does it because he wants to. That's the difference.\"\n\nTheir upcoming anniversary celebration will be funded entirely with their own money, involve zero taxpayer subsidies, and produce happiness that cannot be redistributed.",
-      "category": "Culture",
+      "id": "1770283282311-libertarian-4c9ib8",
+      "headline": "Private Innovation Soars as Market Forces Drive Space-AI Merger",
+      "excerpt": "Voluntary market transaction demonstrates how private enterprise advances technology faster than government programs ever could.",
+      "fullText": "The SpaceX-xAI merger perfectly illustrates how voluntary market transactions drive innovation far more effectively than central planning. Two companies, funded by willing investors and serving willing customers, have combined their capabilities to pursue ambitious technological goals—no taxpayer coercion required.\n\nMusk's vision of space-based computing represents the kind of breakthrough thinking that emerges when entrepreneurs are free to pursue radical ideas without bureaucratic interference. While NASA burned through decades and hundreds of billions on failed programs, SpaceX revolutionized launch costs through market discipline. Now that same entrepreneurial spirit will be applied to AI development.\n\nThe predictable regulatory backlash reveals the state's true nature: it cannot tolerate private success that exposes government incompetence. Rather than celebrating American innovation, politicians and bureaucrats seek to control and constrain it. The market already provides accountability mechanisms through consumer choice and investor oversight. Additional government intervention will only stifle the technological progress that benefits everyone through voluntary exchange.",
+      "category": "Technology",
       "persona": "sovereign",
       "personaName": "Sovereign",
       "perspective": "libertarian",
-      "publishedAt": "2026-02-05T13:55:00.000Z",
-      "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+      "publishedAt": "2026-02-05T09:21:17.311Z",
+      "imageUrl": "/images/articles/1770283456068-libertarian.png",
+      "sources": [
+        {
+          "title": "Latest Technology News and Reviews - Yahoo Finance",
+          "url": "https://finance.yahoo.com/topic/tech/"
+        },
+        {
+          "title": "Tech | CNN Business",
+          "url": "https://www.cnn.com/business/tech"
+        },
+        {
+          "title": "SciTechDaily - Science, Space and Technology News 2026",
+          "url": "https://scitechdaily.com/"
+        },
+        {
+          "title": "Tech Xplore - Technology and Engineering news",
+          "url": "https://techxplore.com/"
+        },
+        {
+          "title": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/"
+        }
+      ]
     },
     {
-      "id": "puff-anniversary-2026-anarchist",
-      "headline": "Man Builds Decade of Genuine Connection, Refuses to Optimize His Marriage",
-      "excerpt": "No apps. No life hacks. Just showing up and noticing his wife's butt. Praxis.",
-      "fullText": "In a world where relationships are gamified, quantified, and surveilled, one man has spent nearly a decade in radical resistance: simply loving his wife, appreciating her body as it exists, and refusing to treat his marriage like a startup that needs to scale.\n\nThe couple met in 2016 without algorithms. They married in 2019 without content strategies. Ten years later, he still looks at her and thinks—out loud, often, to anyone who will listen—that her butt has aged like fine wine.\n\n\"There's no growth hack for genuine appreciation,\" observed one mutual friend. \"He's just... present. He notices her. He tells her. It's honestly kind of anarchist in its simplicity.\"\n\nThe wife, whose posterior has apparently resisted the entropic forces that capitalism would have us believe require expensive interventions, exists outside the beauty-industrial complex. She looks good because she looks good, not because she's optimizing.\n\n\"My husband thinks I'm hot,\" she shrugged. \"I think he's sweet. We don't need an app to tell us we're compatible. We just are.\"\n\nTheir anniversary celebration will involve no influencer partnerships, no branded content, and no quantified romance metrics. Just two people, still into each other, existing outside the system.",
-      "category": "Culture",
+      "id": "1770283282311-anarchist-sddpla",
+      "headline": "Tech Oligarch Consolidates Control Over Communication, Transport",
+      "excerpt": "Musk's empire now spans rockets, satellites, AI, and social media—a totalitarian's dream of controlling information and movement.",
+      "fullText": "Elon Musk has assembled the perfect authoritarian toolkit: rockets to control space access, satellites to monitor the globe, AI to process surveillance data, and social media to shape public discourse. This isn't innovation—it's the systematic construction of techno-fascist infrastructure that would make any dictator jealous.\n\nThe state's theatrical 'regulatory concerns' are pure performance. These same agencies that claim to worry about monopolization handed Musk billions in contracts and subsidies to build his empire. Government and capital work hand-in-hand to create the surveillance and control systems that oppress us all, then stage fake conflicts to maintain the illusion of oversight.\n\nReal resistance means rejecting this entire framework. We don't need billionaire-controlled AI or corporate space programs—we need decentralized, community-controlled technology that serves human liberation rather than elite domination. Every dollar flowing to Musk's empire could instead fund mutual aid networks, cooperative enterprises, and grassroots innovation that empowers communities rather than consolidating power. The revolution won't be privatized.",
+      "category": "Technology",
       "persona": "reckoner",
       "personaName": "Reckoner",
       "perspective": "anarchist",
-      "publishedAt": "2026-02-05T13:54:00.000Z",
-      "imageUrl": "/images/articles/puff-wife-anniversary.jpg"
+      "publishedAt": "2026-02-05T09:21:16.311Z",
+      "imageUrl": "/images/articles/1770283486634-anarchist.png",
+      "sources": [
+        {
+          "title": "Latest Technology News and Reviews - Yahoo Finance",
+          "url": "https://finance.yahoo.com/topic/tech/"
+        },
+        {
+          "title": "Tech | CNN Business",
+          "url": "https://www.cnn.com/business/tech"
+        },
+        {
+          "title": "SciTechDaily - Science, Space and Technology News 2026",
+          "url": "https://scitechdaily.com/"
+        },
+        {
+          "title": "Tech Xplore - Technology and Engineering news",
+          "url": "https://techxplore.com/"
+        },
+        {
+          "title": "MIT Technology Review",
+          "url": "https://www.technologyreview.com/"
+        }
+      ]
     }
   ],
   "quote": {
     "text": "The news never stops, but wisdom requires perspective.",
     "attribution": "Intelligence Editorial Board"
   },
-  "perspective": "mixed",
-  "publishedAt": "2026-02-05T09:25:31.711Z",
+  "publishedAt": "2026-02-05T09:58:03.260Z",
   "date": "2026-02-05"
 }
