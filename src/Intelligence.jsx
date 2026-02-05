@@ -603,6 +603,13 @@ export default function Intelligence() {
           .intelligence-drop-cap {
             font-size: 2.5rem !important;
           }
+
+          /* Perspective dropdown on mobile */
+          .intelligence-perspective-menu {
+            max-height: 60vh !important;
+            overflow-y: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+          }
         }
 
         /* Small mobile (phones) */
@@ -677,7 +684,7 @@ export default function Intelligence() {
         </button>
         
         {showPerspectiveMenu && (
-          <div style={styles.perspectiveMenu}>
+          <div className="intelligence-perspective-menu" style={styles.perspectiveMenu}>
             {Object.entries(PERSPECTIVES).map(([key, value]) => (
               <div
                 key={key}
