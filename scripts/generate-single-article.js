@@ -292,10 +292,26 @@ async function searchNews(category) {
     [{ type: 'web_search_20250305', name: 'web_search' }]
   );
 
+  // Extract text content
   let searchContext = searchResponse.content
     ?.filter(block => block.type === 'text')
     ?.map(block => block.text)
     ?.join('\n\n') || '';
+
+  // Extract source URLs from web search results
+  const sources = [];
+  for (const block of searchResponse.content || []) {
+    if (block.type === 'web_search_tool_result') {
+      for (const result of block.content || []) {
+        if (result.type === 'web_search_result' && result.url) {
+          sources.push({
+            title: result.title || 'Source',
+            url: result.url,
+          });
+        }
+      }
+    }
+  }
 
   if (!searchContext) {
     throw new Error('No news results found');
@@ -307,11 +323,11 @@ async function searchNews(category) {
     searchContext = searchContext.substring(0, MAX_CONTEXT) + '\n[truncated]';
   }
 
-  console.log(`News context: ${searchContext.length} chars`);
-  return searchContext;
+  console.log(`News context: ${searchContext.length} chars, ${sources.length} sources found`);
+  return { searchContext, sources };
 }
 
-async function generateAllPerspectives(category, newsContext) {
+async function generateAllPerspectives(category, newsContext, sources = []) {
   const perspectiveKeys = Object.keys(PERSPECTIVES);
 
   console.log(`\nGenerating ${perspectiveKeys.length} articles from different perspectives...`);
@@ -386,10 +402,11 @@ IMPORTANT:
       perspective: perspectiveKey,
       publishedAt: new Date(now.getTime() - index * 1000).toISOString(), // Stagger by 1 second
       imageUrl: null, // Will be populated if image generation is enabled
+      sources: sources.slice(0, 5), // Include top 5 sources
     };
   });
 
-  return { articles, newsContext };
+  return { articles, newsContext, sources };
 }
 
 function loadPool() {
@@ -466,14 +483,14 @@ async function main() {
     console.log(`Selected category: ${category}`);
 
     // Search for news (one API call)
-    const newsContext = await searchNews(category);
+    const { searchContext, sources } = await searchNews(category);
 
     // Wait for rate limit
     console.log('Waiting 30 seconds for rate limit...');
     await new Promise(resolve => setTimeout(resolve, 30000));
 
     // Generate all perspectives (one API call)
-    const { articles, newsContext: storyContext } = await generateAllPerspectives(category, newsContext);
+    const { articles, newsContext: storyContext } = await generateAllPerspectives(category, searchContext, sources);
 
     console.log(`\nGenerated ${articles.length} articles:`);
     articles.forEach(a => {

@@ -36,6 +36,7 @@ export default function Intelligence() {
   const [showArchive, setShowArchive] = useState(false);
   const [archiveHistory, setArchiveHistory] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedPersona, setSelectedPersona] = useState(null);
 
   const colors = THEMES[theme];
   const fonts = THEME_FONTS[theme];
@@ -794,7 +795,16 @@ export default function Intelligence() {
                   {articles.hero.headline}
                 </h2>
                 <div style={styles.meta}>
-                  <span style={styles.byline}>By {getByline(articles.hero)}</span>
+                  <span
+                    style={{ ...styles.byline, cursor: 'pointer', textDecoration: 'underline' }}
+                    onClick={() => {
+                      if (articles.hero.persona && PERSONAS[articles.hero.persona]) {
+                        setSelectedPersona(PERSONAS[articles.hero.persona]);
+                      }
+                    }}
+                  >
+                    By {getByline(articles.hero)}
+                  </span>
                   <span>Today</span>
                 </div>
                 <div style={styles.articleBody}>
@@ -825,7 +835,16 @@ export default function Intelligence() {
                       {article.headline}
                     </h3>
                     <div style={styles.meta}>
-                      <span style={styles.byline}>By {getByline(article)}</span>
+                      <span
+                        style={{ ...styles.byline, cursor: 'pointer', textDecoration: 'underline' }}
+                        onClick={() => {
+                          if (article.persona && PERSONAS[article.persona]) {
+                            setSelectedPersona(PERSONAS[article.persona]);
+                          }
+                        }}
+                      >
+                        By {getByline(article)}
+                      </span>
                     </div>
                     <div style={styles.articleBody}>
                       <p>{article.excerpt}</p>
@@ -914,7 +933,17 @@ export default function Intelligence() {
               {selectedArticle.headline}
             </h2>
             <div style={styles.meta}>
-              <span style={styles.byline}>By {getByline(selectedArticle)}</span>
+              <span
+                style={{ ...styles.byline, cursor: 'pointer', textDecoration: 'underline' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (selectedArticle.persona && PERSONAS[selectedArticle.persona]) {
+                    setSelectedPersona(PERSONAS[selectedArticle.persona]);
+                  }
+                }}
+              >
+                By {getByline(selectedArticle)}
+              </span>
               <span>Today</span>
             </div>
             <div style={styles.articleBody}>
@@ -927,6 +956,137 @@ export default function Intelligence() {
                   </p>
                 )
               )}
+            </div>
+            {/* Sources */}
+            {selectedArticle.sources && selectedArticle.sources.length > 0 && (
+              <div style={{ marginTop: '2rem', paddingTop: '1rem', borderTop: `1px solid ${colors.ruleLight}` }}>
+                <h4 style={{
+                  fontFamily: fonts.meta,
+                  fontSize: '0.75rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  marginBottom: '0.5rem',
+                  color: colors.textSecondary
+                }}>
+                  Sources
+                </h4>
+                <ul style={{ margin: 0, paddingLeft: '1rem', fontSize: '0.85rem' }}>
+                  {selectedArticle.sources.map((source, i) => (
+                    <li key={i} style={{ marginBottom: '0.25rem' }}>
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ color: accentColor, textDecoration: 'none' }}
+                      >
+                        {source.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Persona Bio Modal */}
+      {selectedPersona && (
+        <div style={styles.modalOverlay} onClick={() => setSelectedPersona(null)}>
+          <div style={{ ...styles.modalContent, maxWidth: '500px' }} onClick={(e) => e.stopPropagation()}>
+            <button style={styles.modalClose} onClick={() => setSelectedPersona(null)}>
+              ×
+            </button>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              marginBottom: '1.5rem',
+              paddingBottom: '1rem',
+              borderBottom: `2px solid ${PERSPECTIVE_COLORS[selectedPersona.perspective] || colors.rule}`
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                backgroundColor: PERSPECTIVE_COLORS[selectedPersona.perspective] || colors.bgSecondary,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: 'white',
+              }}>
+                {selectedPersona.name.charAt(0)}
+              </div>
+              <div>
+                <h2 style={{
+                  fontFamily: fonts.headline,
+                  fontSize: '1.5rem',
+                  fontWeight: 700,
+                  marginBottom: '0.25rem'
+                }}>
+                  {selectedPersona.name}
+                </h2>
+                <p style={{
+                  fontFamily: fonts.meta,
+                  fontSize: '0.75rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  color: PERSPECTIVE_COLORS[selectedPersona.perspective] || colors.textSecondary
+                }}>
+                  {PERSPECTIVES[selectedPersona.perspective]?.name || 'Staff Writer'}
+                </p>
+              </div>
+            </div>
+
+            <p style={{ marginBottom: '1.5rem', fontStyle: 'italic', color: colors.textSecondary }}>
+              {selectedPersona.bio}
+            </p>
+
+            <div style={{ marginBottom: '1rem' }}>
+              <h4 style={{
+                fontFamily: fonts.meta,
+                fontSize: '0.7rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                marginBottom: '0.5rem',
+                color: colors.textSecondary
+              }}>
+                Editorial Voice
+              </h4>
+              <p style={{ fontSize: '0.9rem', lineHeight: 1.6 }}>
+                {selectedPersona.voicePrompt}
+              </p>
+            </div>
+
+            <div>
+              <h4 style={{
+                fontFamily: fonts.meta,
+                fontSize: '0.7rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                marginBottom: '0.5rem',
+                color: colors.textSecondary
+              }}>
+                Focus Areas
+              </h4>
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                {selectedPersona.categories?.map((cat) => (
+                  <span
+                    key={cat}
+                    style={{
+                      padding: '0.25rem 0.75rem',
+                      backgroundColor: colors.bgSecondary,
+                      border: `1px solid ${colors.ruleLight}`,
+                      fontSize: '0.75rem',
+                      fontFamily: fonts.meta,
+                    }}
+                  >
+                    {cat}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
