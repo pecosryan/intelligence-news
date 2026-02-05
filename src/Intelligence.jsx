@@ -75,6 +75,13 @@ export default function Intelligence() {
     });
   };
 
+  const getEditionName = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Morning Edition';
+    if (hour < 17) return 'Afternoon Edition';
+    return 'Evening Edition';
+  };
+
   // Store pool for filtering by perspective
   const [articlePool, setArticlePool] = useState(null);
 
@@ -721,7 +728,7 @@ export default function Intelligence() {
         {/* Masthead */}
         <header style={styles.masthead}>
           <div className="intelligence-masthead-top" style={styles.mastheadTop}>
-            <span>Morning Edition</span>
+            <span>{getEditionName()}</span>
             <span>{formatDate()}</span>
             <span>Est. 2025</span>
           </div>
