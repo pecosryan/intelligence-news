@@ -42,6 +42,17 @@ export default function Intelligence() {
   const fonts = THEME_FONTS[theme];
   const currentPerspective = PERSPECTIVES[perspective];
 
+  // Base path for assets (matches vite.config.js)
+  const BASE_PATH = '/intelligence-news';
+
+  // Helper to get full image URL with base path
+  const getImageUrl = (imageUrl) => {
+    if (!imageUrl) return null;
+    // If already has base path or is absolute URL, return as-is
+    if (imageUrl.startsWith(BASE_PATH) || imageUrl.startsWith('http')) return imageUrl;
+    return `${BASE_PATH}${imageUrl}`;
+  };
+
   // Helper to get persona name from article
   const getByline = (article) => {
     if (article.persona && PERSONAS[article.persona]) {
@@ -759,7 +770,7 @@ export default function Intelligence() {
                 {articles.hero.imageUrl ? (
                   <div style={{ marginBottom: '1rem' }}>
                     <img
-                      src={articles.hero.imageUrl}
+                      src={getImageUrl(articles.hero.imageUrl)}
                       alt={articles.hero.headline}
                       style={{
                         width: '100%',
@@ -908,7 +919,7 @@ export default function Intelligence() {
             {selectedArticle.imageUrl && (
               <div style={{ marginBottom: '1.5rem', marginTop: '-1rem' }}>
                 <img
-                  src={selectedArticle.imageUrl}
+                  src={getImageUrl(selectedArticle.imageUrl)}
                   alt={selectedArticle.headline}
                   style={{
                     width: '100%',
