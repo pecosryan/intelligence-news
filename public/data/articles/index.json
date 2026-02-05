@@ -1,22 +1,22 @@
 {
-  "lastUpdated": "2026-02-05T06:27:58.720Z",
+  "lastUpdated": "2026-02-05T22:07:16.283Z",
   "totalArticles": 7,
   "editions": [
     {
       "date": "2026-02-05",
-      "publishedAt": "2026-02-05T06:27:58.720Z",
+      "publishedAt": "2026-02-05T22:07:16.283Z",
       "perspective": "center",
-      "heroHeadline": "US-Iran Nuclear Talks Salvaged After Brief Cancellation as Regional Powers Intervene",
+      "heroHeadline": "New START Nuclear Treaty Expires as US-Russia Tensions Peak",
       "articleCount": 7,
       "path": "/data/articles/archive/2026/02/05/edition.json"
     }
   ],
   "categories": {
     "World": 2,
-    "Business": 1,
-    "Technology": 1,
-    "Politics": 1,
+    "Business": 2,
+    "Technology": 0,
+    "Politics": 2,
     "Science": 1,
-    "Culture": 1
+    "Culture": 0
   }
 }
