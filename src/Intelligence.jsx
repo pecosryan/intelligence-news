@@ -484,7 +484,7 @@ export default function Intelligence() {
     },
   };
 
-  // Add keyframes for spinner
+  // Add keyframes and responsive styles
   useEffect(() => {
     const styleId = 'intelligence-keyframes';
     if (!document.getElementById(styleId)) {
@@ -494,6 +494,129 @@ export default function Intelligence() {
         @keyframes spin {
           to { transform: rotate(360deg); }
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+          /* Stack the main grid vertically */
+          .intelligence-main-grid {
+            display: block !important;
+          }
+
+          /* Hide column rules on mobile */
+          .intelligence-column-rule {
+            display: none !important;
+          }
+
+          /* Adjust masthead for mobile */
+          .intelligence-masthead-title {
+            font-size: 2rem !important;
+          }
+
+          /* Stack masthead top info */
+          .intelligence-masthead-top {
+            flex-direction: column !important;
+            gap: 0.25rem !important;
+          }
+
+          /* Adjust hero headline for mobile */
+          .intelligence-headline-hero {
+            font-size: 1.8rem !important;
+          }
+
+          /* Adjust medium headlines */
+          .intelligence-headline-medium {
+            font-size: 1.2rem !important;
+          }
+
+          /* Navigation wrapping */
+          .intelligence-nav {
+            gap: 0.75rem !important;
+            font-size: 0.65rem !important;
+          }
+
+          /* Move perspective selector */
+          .intelligence-perspective-selector {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin-bottom: 1rem !important;
+          }
+
+          /* Move theme switcher */
+          .intelligence-theme-switcher {
+            position: relative !important;
+            top: auto !important;
+            right: auto !important;
+            justify-content: center !important;
+            margin-bottom: 1rem !important;
+          }
+
+          /* Mobile controls container */
+          .intelligence-mobile-controls {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+            padding: 0.5rem !important;
+          }
+
+          /* Modal adjustments */
+          .intelligence-modal-overlay {
+            padding: 0.5rem !important;
+          }
+
+          .intelligence-modal-content {
+            padding: 1.5rem !important;
+            max-height: 95vh !important;
+          }
+
+          /* Image placeholder smaller on mobile */
+          .intelligence-image-placeholder {
+            height: 180px !important;
+          }
+
+          /* Sidebar section spacing */
+          .intelligence-sidebar-section {
+            margin-top: 2rem !important;
+            padding-top: 1.5rem !important;
+            border-top: 1px solid currentColor !important;
+          }
+
+          /* Secondary articles grid on mobile */
+          .intelligence-secondary-grid {
+            display: block !important;
+          }
+
+          .intelligence-secondary-article {
+            margin-bottom: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+            border-bottom: 1px solid currentColor !important;
+          }
+
+          /* Drop cap smaller on mobile */
+          .intelligence-drop-cap {
+            font-size: 2.5rem !important;
+          }
+        }
+
+        /* Small mobile (phones) */
+        @media (max-width: 480px) {
+          .intelligence-masthead-title {
+            font-size: 1.6rem !important;
+          }
+
+          .intelligence-headline-hero {
+            font-size: 1.5rem !important;
+          }
+
+          .intelligence-newspaper {
+            padding: 0.5rem !important;
+          }
+
+          .intelligence-theme-btn {
+            padding: 0.3rem 0.5rem !important;
+            font-size: 0.6rem !important;
+          }
+        }
       `;
       document.head.appendChild(style);
     }
@@ -501,14 +624,15 @@ export default function Intelligence() {
 
   const DropCap = ({ children }) => {
     if (theme === 'modern' || !children) return <p style={{ marginBottom: '1rem' }}>{children}</p>;
-    
+
     const text = String(children);
     const firstLetter = text.charAt(0);
     const rest = text.slice(1);
-    
+
     return (
       <p style={{ marginBottom: '1rem' }}>
         <span
+          className="intelligence-drop-cap"
           style={{
             float: 'left',
             fontFamily: fonts.headline,
@@ -529,9 +653,14 @@ export default function Intelligence() {
 
   return (
     <div style={styles.container}>
+      {/* Mobile Controls Container */}
+      <div className="intelligence-mobile-controls" style={{ display: 'none' }}>
+        {/* Placeholder for mobile - controls will move here via CSS */}
+      </div>
+
       {/* Perspective Selector */}
-      <div style={styles.perspectiveSelector}>
-        <button 
+      <div className="intelligence-perspective-selector" style={styles.perspectiveSelector}>
+        <button
           style={styles.perspectiveButton}
           onClick={() => setShowPerspectiveMenu(!showPerspectiveMenu)}
         >
@@ -575,10 +704,11 @@ export default function Intelligence() {
       </div>
 
       {/* Theme Switcher */}
-      <div style={styles.themeSwitcher}>
+      <div className="intelligence-theme-switcher" style={styles.themeSwitcher}>
         {Object.entries(THEMES).map(([key, value]) => (
           <button
             key={key}
+            className="intelligence-theme-btn"
             style={styles.themeBtn(theme === key)}
             onClick={() => setTheme(key)}
           >
@@ -587,20 +717,20 @@ export default function Intelligence() {
         ))}
       </div>
 
-      <div style={styles.newspaper}>
+      <div className="intelligence-newspaper" style={styles.newspaper}>
         {/* Masthead */}
         <header style={styles.masthead}>
-          <div style={styles.mastheadTop}>
+          <div className="intelligence-masthead-top" style={styles.mastheadTop}>
             <span>Morning Edition</span>
             <span>{formatDate()}</span>
             <span>Est. 2025</span>
           </div>
-          <h1 style={styles.mastheadTitle}>Intelligence</h1>
+          <h1 className="intelligence-masthead-title" style={styles.mastheadTitle}>Intelligence</h1>
           <p style={styles.tagline}>{currentPerspective.tagline}</p>
         </header>
 
         {/* Navigation */}
-        <nav style={styles.navBar}>
+        <nav className="intelligence-nav" style={styles.navBar}>
           {CATEGORIES.map((cat) => (
             <span key={cat} style={styles.navLink}>
               {cat}
@@ -625,7 +755,7 @@ export default function Intelligence() {
         </nav>
 
         {/* Main Content */}
-        <main style={showArchive ? { ...styles.mainGrid, display: 'block' } : styles.mainGrid}>
+        <main className="intelligence-main-grid" style={showArchive ? { ...styles.mainGrid, display: 'block' } : styles.mainGrid}>
           {showArchive ? (
             <div style={{ gridColumn: '1 / -1' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
@@ -782,7 +912,7 @@ export default function Intelligence() {
                     />
                   </div>
                 ) : (
-                  <div style={styles.imagePlaceholder}>
+                  <div className="intelligence-image-placeholder" style={styles.imagePlaceholder}>
                     <span
                       style={{
                         fontFamily: fonts.meta,
@@ -798,6 +928,7 @@ export default function Intelligence() {
                 )}
                 <p style={styles.category}>{articles.hero.category}</p>
                 <h2
+                  className="intelligence-headline-hero"
                   style={styles.headlineHero}
                   onClick={() => setSelectedArticle(articles.hero)}
                   onMouseEnter={(e) => (e.target.style.color = accentColor)}
@@ -823,10 +954,10 @@ export default function Intelligence() {
                 </div>
               </article>
 
-              <div style={styles.columnRule} />
+              <div className="intelligence-column-rule" style={styles.columnRule} />
 
               {/* Secondary Column */}
-              <div>
+              <div className="intelligence-secondary-grid">
                 {articles.secondary?.map((article, i) => (
                   <article
                     key={i}
@@ -838,6 +969,7 @@ export default function Intelligence() {
                   >
                     <p style={styles.category}>{article.category}</p>
                     <h3
+                      className="intelligence-headline-medium"
                       style={styles.headlineMedium}
                       onClick={() => setSelectedArticle(article)}
                       onMouseEnter={(e) => (e.target.style.color = accentColor)}
@@ -864,10 +996,10 @@ export default function Intelligence() {
                 ))}
               </div>
 
-              <div style={styles.columnRule} />
+              <div className="intelligence-column-rule" style={styles.columnRule} />
 
               {/* Sidebar */}
-              <div>
+              <div className="intelligence-sidebar-section">
                 <div style={{ marginBottom: '2rem' }}>
                   <h4 style={styles.sidebarTitle}>Latest Headlines</h4>
                   <div>
@@ -911,8 +1043,8 @@ export default function Intelligence() {
 
       {/* Article Modal */}
       {selectedArticle && (
-        <div style={styles.modalOverlay} onClick={() => setSelectedArticle(null)}>
-          <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+        <div className="intelligence-modal-overlay" style={styles.modalOverlay} onClick={() => setSelectedArticle(null)}>
+          <div className="intelligence-modal-content" style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button style={styles.modalClose} onClick={() => setSelectedArticle(null)}>
               ×
             </button>
@@ -1003,8 +1135,8 @@ export default function Intelligence() {
 
       {/* Persona Bio Modal */}
       {selectedPersona && (
-        <div style={styles.modalOverlay} onClick={() => setSelectedPersona(null)}>
-          <div style={{ ...styles.modalContent, maxWidth: '500px' }} onClick={(e) => e.stopPropagation()}>
+        <div className="intelligence-modal-overlay" style={styles.modalOverlay} onClick={() => setSelectedPersona(null)}>
+          <div className="intelligence-modal-content" style={{ ...styles.modalContent, maxWidth: '500px' }} onClick={(e) => e.stopPropagation()}>
             <button style={styles.modalClose} onClick={() => setSelectedPersona(null)}>
               ×
             </button>
