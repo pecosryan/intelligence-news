@@ -54,19 +54,13 @@ export default function Intelligence() {
     }
   };
 
-  // Find article by ID in the current pool
-  const findArticleById = (id) => {
-    if (!articlePool?.articles) return null;
-    return articlePool.articles.find(a => a.id === id);
-  };
-
   // Handle URL hash on load and when pool loads
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash;
-      if (hash.startsWith('#article/')) {
+      if (hash.startsWith('#article/') && articlePool?.articles) {
         const articleId = hash.replace('#article/', '');
-        const article = findArticleById(articleId);
+        const article = articlePool.articles.find(a => a.id === articleId);
         if (article) {
           setSelectedArticle(article);
         }
