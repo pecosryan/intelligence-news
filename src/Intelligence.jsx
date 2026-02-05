@@ -40,6 +40,48 @@ export default function Intelligence() {
   const [showComments, setShowComments] = useState(false);
 
   const colors = THEMES[theme];
+
+  // Helper to select an article and update the URL hash
+  const selectArticle = (article) => {
+    if (article) {
+      setSelectedArticle(article);
+      window.location.hash = `article/${article.id}`;
+    } else {
+      setSelectedArticle(null);
+      setShowComments(false);
+      // Remove hash without triggering a page jump
+      history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
+  };
+
+  // Find article by ID in the current pool
+  const findArticleById = (id) => {
+    if (!articlePool?.articles) return null;
+    return articlePool.articles.find(a => a.id === id);
+  };
+
+  // Handle URL hash on load and when pool loads
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#article/')) {
+        const articleId = hash.replace('#article/', '');
+        const article = findArticleById(articleId);
+        if (article) {
+          setSelectedArticle(article);
+        }
+      }
+    };
+
+    // Check hash when pool loads
+    if (articlePool?.articles) {
+      handleHash();
+    }
+
+    // Listen for back/forward navigation
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [articlePool]);
   const fonts = THEME_FONTS[theme];
   const currentPerspective = PERSPECTIVES[perspective];
 
@@ -880,7 +922,7 @@ export default function Intelligence() {
                             <h3
                               style={{ ...styles.headlineMedium, cursor: 'pointer' }}
                               onClick={() => {
-                                setSelectedArticle(edition.hero);
+                                selectArticle(edition.hero);
                               }}
                             >
                               {edition.hero.headline}
@@ -945,7 +987,7 @@ export default function Intelligence() {
                 <h2
                   className="intelligence-headline-hero"
                   style={styles.headlineHero}
-                  onClick={() => setSelectedArticle(articles.hero)}
+                  onClick={() => selectArticle(articles.hero)}
                   onMouseEnter={(e) => (e.target.style.color = accentColor)}
                   onMouseLeave={(e) => (e.target.style.color = colors.text)}
                 >
@@ -986,7 +1028,7 @@ export default function Intelligence() {
                     <h3
                       className="intelligence-headline-medium"
                       style={styles.headlineMedium}
-                      onClick={() => setSelectedArticle(article)}
+                      onClick={() => selectArticle(article)}
                       onMouseEnter={(e) => (e.target.style.color = accentColor)}
                       onMouseLeave={(e) => (e.target.style.color = colors.text)}
                     >
@@ -1058,9 +1100,9 @@ export default function Intelligence() {
 
       {/* Article Modal */}
       {selectedArticle && (
-        <div className="intelligence-modal-overlay" style={styles.modalOverlay} onClick={() => { setSelectedArticle(null); setShowComments(false); }}>
+        <div className="intelligence-modal-overlay" style={styles.modalOverlay} onClick={() => selectArticle(null)}>
           <div className="intelligence-modal-content" style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button style={styles.modalClose} onClick={() => { setSelectedArticle(null); setShowComments(false); }}>
+            <button style={styles.modalClose} onClick={() => selectArticle(null)}>
               ×
             </button>
             {selectedArticle.imageUrl && (

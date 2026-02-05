@@ -7,7 +7,7 @@ export const PERSPECTIVES = {
     name: 'Progressive',
     icon: '←',
     description: 'Social justice & equity focus',
-    tagline: 'Afflicting the Comfortable Since 2025',
+    tagline: 'Journalism for the Common Good',
     prompt: `Write from a progressive/left-leaning editorial perspective. Emphasize:
 - Social and economic inequality, systemic issues
 - Worker rights, union perspectives, labor conditions
