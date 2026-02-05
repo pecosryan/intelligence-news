@@ -1,242 +1,242 @@
 {
   "hero": {
-    "id": "1770304971284-center-m05ekw",
-    "headline": "New Nasal Bird Flu Vaccine Shows Promise in Animal Studies",
-    "excerpt": "Researchers report successful animal trials of a nasal spray H5N1 vaccine that outperformed traditional injections. The development comes as bird flu cases continue to rise in both animals and humans.",
-    "fullText": "A breakthrough nasal spray vaccine for H5N1 bird flu has demonstrated strong protective effects in animal testing, offering potential advantages over conventional injection-based vaccines. In studies using hamsters and mice, researchers observed near-complete protection against bird flu infection, with the nasal delivery method producing superior immune responses in respiratory tissues compared to intramuscular shots.\n\nThe timing is significant as H5N1 continues spreading beyond wild birds into livestock and humans, with over 70 cases reported in the U.S. The nasal vaccine approach addresses a key limitation of traditional flu shots by providing stronger protection in the nose and lungs, potentially reducing both severe illness and transmission rates.\n\nWhile promising, the research remains in early stages and would require extensive human trials and regulatory approval before public deployment. The development raises important questions about pandemic preparedness funding, vaccine distribution strategies, and regulatory frameworks for novel delivery methods that policymakers across the political spectrum will need to address.",
-    "category": "Science",
-    "persona": "fulcrum",
-    "personaName": "Fulcrum",
+    "id": "1770325951624-center-sgcy4o",
+    "headline": "Government Reopens as Congress Faces DHS Funding Deadline",
+    "excerpt": "President Trump signed legislation ending the weekend shutdown, but gave DHS only two weeks of funding amid ongoing Minneapolis immigration enforcement disputes.",
+    "fullText": "President Trump signed into law Tuesday a funding package that ended the brief government shutdown that began Saturday, though the Department of Homeland Security received only a two-week extension amid ongoing controversies. The limited funding comes as federal immigration enforcement operations in Minneapolis face mounting criticism from federal judges and lawmakers.\n\nThe crisis centers on Immigration and Customs Enforcement operations in the Twin Cities, where an ICE attorney was recently removed after telling a judge the job 'sucks' due to crushing workloads and the agency's apparent inability to comply with court orders. The chief federal judge in Minnesota stated that ICE has 'likely violated more court orders in January 2026 than some federal agencies have violated in their entire existence.'\n\nCongress now has ten days to negotiate a longer-term DHS funding agreement, with Democrats demanding reforms to immigration enforcement agencies. The Trump administration has signaled potential flexibility, with the President telling NBC News his administration could use 'a softer touch' in Minneapolis operations.",
+    "category": "Politics",
+    "persona": "meridian",
+    "personaName": "Meridian",
     "perspective": "center",
-    "publishedAt": "2026-02-05T15:22:51.283Z",
-    "imageUrl": "/images/articles/1770304992629-center.png",
+    "publishedAt": "2026-02-05T21:12:31.623Z",
+    "imageUrl": "/images/articles/1770325973272-center.png",
     "sources": [
       {
-        "title": "SciTechDaily - Science, Space and Technology News 2026",
-        "url": "https://scitechdaily.com/"
+        "title": "Politics : NPR",
+        "url": "https://www.npr.org/sections/politics/"
       },
       {
-        "title": "Breaking News -- ScienceDaily",
-        "url": "https://www.sciencedaily.com/breaking/"
+        "title": "February 2, 2026 - Trump administration news | CNN Politics",
+        "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
       },
       {
-        "title": "ScienceDaily: Your source for the latest research news",
-        "url": "https://www.sciencedaily.com/"
+        "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+        "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
       },
       {
-        "title": "Sci.News: Breaking Science News",
-        "url": "https://www.sci.news/"
+        "title": "CBS News | Breaking news, top stories & today's latest headlines",
+        "url": "https://www.cbsnews.com/"
       },
       {
-        "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-        "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+        "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+        "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
       }
     ]
   },
   "secondary": [
     {
-      "id": "1770304971284-centerLeft-47z0mk",
-      "headline": "Science Delivers Hope: Nasal Bird Flu Vaccine Could Revolutionize Prevention",
-      "excerpt": "Evidence-based research produces a promising nasal H5N1 vaccine that could prevent the next pandemic. The breakthrough underscores the critical importance of sustained public health investment.",
-      "fullText": "The scientific community has achieved a significant milestone with a nasal spray bird flu vaccine showing remarkable efficacy in animal trials, demonstrating the power of evidence-based medical research and sustained public funding for pandemic preparedness. This breakthrough represents exactly the kind of proactive, science-driven approach experts have advocated for since COVID-19 exposed gaps in our preparedness infrastructure.\n\nThe vaccine's superior performance compared to traditional injections validates the scientific consensus around diversifying delivery methods and investing in next-generation vaccine technologies. By providing stronger mucosal immunity, this approach could prevent both severe disease and community transmission—a critical advance given H5N1's concerning spread through agricultural systems.\n\nThis success story highlights why continued federal investment in NIH research, robust regulatory oversight through the FDA, and equitable distribution planning are essential. As we move toward human trials, policymakers must ensure this promising technology is developed responsibly and made accessible to all communities, particularly farmworkers and rural populations who face the highest exposure risks.",
-      "category": "Science",
+      "id": "1770325951624-centerLeft-4ukv9t",
+      "headline": "Court Violations Force Reckoning on Immigration Enforcement",
+      "excerpt": "Widespread judicial findings of ICE non-compliance in Minneapolis highlight the need for evidence-based reforms to immigration enforcement practices.",
+      "fullText": "The brief government shutdown and subsequent two-week DHS funding extension represent a crucial opportunity to address systemic problems in immigration enforcement that have reached a breaking point in Minneapolis. Federal judges have documented extensive violations of court orders by ICE, with Minnesota's chief federal judge noting the agency has violated more orders in one month than most agencies do in their entire existence.\n\nThe removal of an ICE attorney who publicly complained about the agency's inability to follow legal procedures underscores the need for comprehensive reform based on expert recommendations and judicial oversight. Research consistently shows that community-based alternatives to detention are more cost-effective and humane while maintaining high compliance rates with immigration proceedings.\n\nPresident Trump's acknowledgment that his administration could use 'a softer touch' suggests recognition that current enforcement strategies are counterproductive. Congress should seize this moment to implement evidence-based reforms that ensure both legal compliance and effective immigration policy, drawing on successful models from states that have balanced enforcement with community integration.",
+      "category": "Politics",
       "persona": "caliber",
       "personaName": "Caliber",
       "perspective": "centerLeft",
-      "publishedAt": "2026-02-05T15:22:50.283Z",
-      "imageUrl": "/images/articles/1770305022455-centerLeft.png",
+      "publishedAt": "2026-02-05T21:12:30.623Z",
+      "imageUrl": "/images/articles/1770326009823-centerLeft.png",
       "sources": [
         {
-          "title": "SciTechDaily - Science, Space and Technology News 2026",
-          "url": "https://scitechdaily.com/"
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
         },
         {
-          "title": "Breaking News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/breaking/"
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
         },
         {
-          "title": "ScienceDaily: Your source for the latest research news",
-          "url": "https://www.sciencedaily.com/"
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
         },
         {
-          "title": "Sci.News: Breaking Science News",
-          "url": "https://www.sci.news/"
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
         },
         {
-          "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-          "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
         }
       ]
     },
     {
-      "id": "1770304971284-centerRight-gyc9jq",
-      "headline": "Private Innovation Tackles Bird Flu with Novel Vaccine Approach",
-      "excerpt": "Market-driven research delivers promising nasal H5N1 vaccine results, showing how targeted investment and regulatory efficiency can advance public health preparedness.",
-      "fullText": "The successful development of a nasal spray bird flu vaccine demonstrates how focused private sector innovation and streamlined research protocols can deliver meaningful public health advances. The superior protection observed in animal studies—achieved through market-tested research methodologies—offers a practical solution to H5N1's growing threat to both agricultural economies and human health.\n\nThis achievement reflects the effectiveness of existing regulatory frameworks in fostering innovation while maintaining safety standards. The researchers' ability to rapidly develop and test this novel delivery method shows how competitive research environments drive the kind of breakthrough thinking necessary for pandemic preparedness without requiring massive government expansion.\n\nMoving forward, policymakers should focus on maintaining regulatory predictability and protecting intellectual property rights that incentivize such innovations. The agricultural sector, already demonstrating resilience in managing H5N1 outbreaks, would benefit from market-based distribution mechanisms that efficiently deliver vaccines to high-risk populations while preserving the fiscal responsibility taxpayers expect from public health initiatives.",
-      "category": "Science",
-      "persona": "sterling",
-      "personaName": "Sterling",
+      "id": "1770325951624-centerRight-yhnl6o",
+      "headline": "Immigration Enforcement Crisis Demands Efficient Solutions",
+      "excerpt": "Operational failures in Minneapolis immigration enforcement highlight need for streamlined, legally compliant processes that respect both law and taxpayer resources.",
+      "fullText": "The government shutdown and ongoing Minneapolis immigration enforcement crisis reveal concerning operational inefficiencies that waste taxpayer dollars while failing to uphold the rule of law. When federal agencies cannot comply with basic court orders, it undermines both fiscal responsibility and legal authority that conservative governance demands.\n\nThe removal of an ICE attorney who complained about crushing workloads and legal violations points to management failures that any well-run organization would find unacceptable. Effective immigration enforcement requires competent administration, not just tough rhetoric. The chief federal judge's observation about unprecedented court violations demonstrates a breakdown in basic governmental function.\n\nPresident Trump's suggestion of 'a softer touch' may reflect recognition that current operations lack the efficiency and legal compliance necessary for sustainable policy. Congress should focus on streamlining processes, ensuring adequate training and resources, and establishing clear accountability measures. Effective enforcement serves national interests, but it must be conducted with the professional competence Americans expect from their government institutions.",
+      "category": "Politics",
+      "persona": "sentinel",
+      "personaName": "Sentinel",
       "perspective": "centerRight",
-      "publishedAt": "2026-02-05T15:22:49.283Z",
-      "imageUrl": "/images/articles/1770305053944-centerRight.png",
+      "publishedAt": "2026-02-05T21:12:29.623Z",
+      "imageUrl": "/images/articles/1770326042102-centerRight.png",
       "sources": [
         {
-          "title": "SciTechDaily - Science, Space and Technology News 2026",
-          "url": "https://scitechdaily.com/"
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
         },
         {
-          "title": "Breaking News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/breaking/"
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
         },
         {
-          "title": "ScienceDaily: Your source for the latest research news",
-          "url": "https://www.sciencedaily.com/"
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
         },
         {
-          "title": "Sci.News: Breaking Science News",
-          "url": "https://www.sci.news/"
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
         },
         {
-          "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-          "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
         }
       ]
     }
   ],
   "sidebar": [
     {
-      "id": "1770304971284-left-2kmlhk",
-      "headline": "Bird Flu Vaccine Breakthrough Must Prioritize Frontline Workers",
-      "excerpt": "While nasal H5N1 vaccine shows promise, farmworkers and meatpacking employees—already facing dangerous conditions—must be centered in any distribution plan.",
-      "fullText": "A new nasal spray bird flu vaccine showing strong results in animal studies offers hope, but the real test will be whether this breakthrough reaches the frontline workers who have borne the brunt of H5N1 exposure. Farmworkers, poultry plant employees, and meat processing staff—predominantly Latino and immigrant communities—face daily risks while earning poverty wages and lacking basic healthcare access.\n\nThe vaccine's nasal delivery method could be revolutionary for worker protection, but only if distribution planning prioritizes equity over profit. Too often, agricultural workers are treated as expendable in our food system, exposed to dangerous conditions while lacking the political power to demand better protections. The COVID-19 pandemic showed how vaccine access followed existing inequalities, leaving essential workers behind.\n\nAny public funding for this vaccine's development creates an obligation to ensure accessible distribution. This means multilingual outreach, workplace vaccination programs, paid time off for vaccination, and protection from employer retaliation. The pharmaceutical industry must not be allowed to profit from publicly-funded research while pricing out the very workers who need protection most. True pandemic preparedness requires confronting the systemic inequalities that make some communities more vulnerable than others.",
-      "category": "Science",
-      "persona": "ember",
-      "personaName": "Ember",
+      "id": "1770325951624-left-axk2zu",
+      "headline": "State Violence Escalates as Communities Resist Immigration Raids",
+      "excerpt": "Federal agents' fatal shooting of two Americans in Minneapolis exposes the human cost of militarized immigration enforcement targeting vulnerable communities.",
+      "fullText": "The government shutdown that ended Tuesday cannot obscure the human tragedy unfolding in Minneapolis, where federal agents fatally shot two Americans during escalating immigration enforcement operations. These deaths represent the predictable outcome of militarizing immigration policy and treating immigrant communities as enemy territory rather than neighbors seeking safety and dignity.\n\nThe removal of an ICE attorney who called her job crushing reveals the systemic cruelty baked into current enforcement priorities. When even government lawyers acknowledge they cannot comply with basic legal protections, it exposes how the immigration system has been weaponized against vulnerable populations. The chief federal judge's documentation of unprecedented legal violations shows how enforcement agencies operate with impunity, treating constitutional rights as obstacles rather than foundational principles.\n\nCommunities across Minneapolis have organized mutual aid networks, know-your-rights trainings, and sanctuary support precisely because they understand the government will not protect them. Trump's suggestion of 'a softer touch' rings hollow after years of family separation, workplace raids, and now deadly force. Real justice requires dismantling the detention-deportation pipeline and investing those billions in community-based solutions that treat migration as a human right, not a criminal act.",
+      "category": "Politics",
+      "persona": "vanguard",
+      "personaName": "Vanguard",
       "perspective": "left",
-      "publishedAt": "2026-02-05T15:22:48.283Z",
-      "imageUrl": "/images/articles/1770305090977-left.png",
+      "publishedAt": "2026-02-05T21:12:28.623Z",
+      "imageUrl": "/images/articles/1770326074175-left.png",
       "sources": [
         {
-          "title": "SciTechDaily - Science, Space and Technology News 2026",
-          "url": "https://scitechdaily.com/"
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
         },
         {
-          "title": "Breaking News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/breaking/"
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
         },
         {
-          "title": "ScienceDaily: Your source for the latest research news",
-          "url": "https://www.sciencedaily.com/"
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
         },
         {
-          "title": "Sci.News: Breaking Science News",
-          "url": "https://www.sci.news/"
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
         },
         {
-          "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-          "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
         }
       ]
     },
     {
-      "id": "1770304971284-right-ue2jrv",
-      "headline": "Common Sense Bird Flu Solution Emerges While Elites Overthink Crisis",
-      "excerpt": "Hardworking researchers develop straightforward nasal vaccine for bird flu, proving practical solutions work better than bureaucratic panic and media hysteria.",
-      "fullText": "While the media and Washington elites have been stirring up panic about the next pandemic, actual scientists have been doing what Americans do best—rolling up their sleeves and solving problems. A new nasal spray vaccine for bird flu shows remarkable success in animal testing, offering real protection instead of more government fearmongering and bureaucratic red tape.\n\nThis breakthrough came from researchers focused on results, not politics. The nasal delivery method makes perfect sense—you spray where the virus enters, you stop it there. It's common sense that apparently escaped the same public health officials who spent years flip-flopping on masks and lockdowns while working families suffered.\n\nWhat matters now is getting this vaccine to the farmers, ranchers, and food workers who actually keep America fed—not the laptop class that works from home while lecturing others about following the science. These hardworking Americans don't need lectures about equity or complex distribution schemes. They need a vaccine that works, delivered without bureaucratic delays or political grandstanding. Let's hope the FDA can approve this without the typical government incompetence that turned COVID into a disaster.",
-      "category": "Science",
+      "id": "1770325951624-right-m3wotw",
+      "headline": "Broken System Fails American Workers, Needs Common Sense Fix",
+      "excerpt": "Elite mismanagement of immigration enforcement hurts working families while bureaucrats can't even follow basic rules.",
+      "fullText": "Once again, the Washington swamp has proven it can't do the basics right. American taxpayers fund immigration enforcement to protect our communities and jobs, but bureaucrats in Minneapolis can't even follow simple court orders. When your own lawyer says the job 'sucks' because the system is broken, that's not immigration enforcement – that's government failure.\n\nHardworking Americans deserve better than agencies that violate more court orders in one month than most do in decades. While families struggle with inflation and job competition, our own government can't run a competent operation to enforce laws that protect American workers. The brief shutdown happened because politicians won't fix what's obviously broken.\n\nPresident Trump recognizing the need for 'a softer touch' shows he listens to regular people, not just Washington insiders. But soft doesn't mean weak – it means smart. Americans want immigration laws enforced fairly and effectively, not the current mess that helps no one. Congress needs to stop playing politics and give our enforcement agencies the tools and leadership they need to do their jobs right. American families are counting on it.",
+      "category": "Politics",
       "persona": "tribune",
       "personaName": "Tribune",
       "perspective": "right",
-      "publishedAt": "2026-02-05T15:22:47.283Z",
-      "imageUrl": "/images/articles/1770305121308-right.png",
+      "publishedAt": "2026-02-05T21:12:27.623Z",
+      "imageUrl": "/images/articles/1770326106437-right.png",
       "sources": [
         {
-          "title": "SciTechDaily - Science, Space and Technology News 2026",
-          "url": "https://scitechdaily.com/"
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
         },
         {
-          "title": "Breaking News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/breaking/"
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
         },
         {
-          "title": "ScienceDaily: Your source for the latest research news",
-          "url": "https://www.sciencedaily.com/"
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
         },
         {
-          "title": "Sci.News: Breaking Science News",
-          "url": "https://www.sci.news/"
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
         },
         {
-          "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-          "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
         }
       ]
     },
     {
-      "id": "1770304971284-libertarian-ms3nne",
-      "headline": "Market-Driven Vaccine Innovation Outpaces Government Preparedness Plans",
-      "excerpt": "Private researchers achieve bird flu vaccine breakthrough through voluntary cooperation and market incentives, highlighting the superiority of decentralized solutions over centralized planning.",
-      "fullText": "The successful development of a nasal bird flu vaccine demonstrates the power of voluntary scientific collaboration and market-driven innovation over top-down government pandemic planning. Researchers, operating through decentralized networks and competitive incentives, have produced a potentially game-changing solution while federal agencies remain mired in bureaucratic processes and political calculations.\n\nThis achievement raises fundamental questions about the proper role of government in pandemic preparedness. Private actors, responding to real-world needs and market signals, have developed superior protection methods without requiring massive federal programs or coercive mandates. The nasal delivery approach succeeds because it addresses practical problems through innovative thinking—not bureaucratic compliance.\n\nThe path forward should emphasize individual choice and market mechanisms over government control. Rather than creating new federal programs or regulatory expansions, policymakers should eliminate barriers to voluntary vaccine adoption and private distribution networks. Individuals and businesses are perfectly capable of making informed decisions about their health risks without government mandates or centralized distribution schemes. The free market has once again proven more effective than government planning at solving complex problems.",
-      "category": "Science",
+      "id": "1770325951624-libertarian-1bu9as",
+      "headline": "Federal Overreach Triggers Constitutional Crisis in Minneapolis",
+      "excerpt": "Systematic court violations and deadly force highlight dangerous expansion of federal police powers threatening individual liberty for all Americans.",
+      "fullText": "The Minneapolis immigration enforcement crisis represents a textbook case of federal overreach threatening constitutional principles that protect every American's liberty. When Immigration and Customs Enforcement violates more court orders in one month than most agencies do in their entire existence, it demonstrates how unchecked government power inevitably leads to lawlessness by the very institutions meant to enforce law.\n\nThe fatal shooting of two Americans by federal agents during immigration operations should alarm anyone concerned about the militarization of domestic law enforcement. These agencies operate with qualified immunity and broad discretionary powers that would be unthinkable in private enterprise. The removal of an ICE attorney who complained about systemic legal violations shows how bureaucratic momentum crushes individual accountability.\n\nRather than expanding funding for agencies that cannot operate within constitutional constraints, Congress should dramatically scale back federal immigration enforcement and return these responsibilities to states and local communities. Market-based solutions like expanded guest worker programs would address labor needs without creating the surveillance state apparatus that threatens everyone's civil liberties. The Constitution's limitations on federal power exist precisely to prevent the kind of enforcement crisis now unfolding in Minneapolis.",
+      "category": "Politics",
       "persona": "sovereign",
       "personaName": "Sovereign",
       "perspective": "libertarian",
-      "publishedAt": "2026-02-05T15:22:46.283Z",
-      "imageUrl": "/images/articles/1770305166704-libertarian.png",
+      "publishedAt": "2026-02-05T21:12:26.623Z",
+      "imageUrl": "/images/articles/1770326142509-libertarian.png",
       "sources": [
         {
-          "title": "SciTechDaily - Science, Space and Technology News 2026",
-          "url": "https://scitechdaily.com/"
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
         },
         {
-          "title": "Breaking News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/breaking/"
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
         },
         {
-          "title": "ScienceDaily: Your source for the latest research news",
-          "url": "https://www.sciencedaily.com/"
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
         },
         {
-          "title": "Sci.News: Breaking Science News",
-          "url": "https://www.sci.news/"
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
         },
         {
-          "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-          "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
         }
       ]
     },
     {
-      "id": "1770304971284-anarchist-43lltv",
-      "headline": "Vaccine Breakthrough Can't Mask Capitalist Agriculture's Pandemic Factory",
-      "excerpt": "While researchers develop nasal bird flu vaccines, the industrial agriculture system that created this crisis continues grinding up workers and animals for corporate profit.",
-      "fullText": "Sure, scientists have developed a nasal spray that might protect people from H5N1, but let's be clear about what's really happening here: the same industrial agriculture system that created this pandemic threat is now positioning itself to profit from the solution. Factory farms cram thousands of animals into disease-breeding hellscapes, then expect workers and communities to bear the health risks while corporations socialize the cleanup costs.\n\nThis vaccine breakthrough will likely follow the same pattern as every other medical innovation under capitalism—publicly funded research gets privatized into corporate profits while the most vulnerable populations get screwed. Farmworkers, who face the highest exposure risks, will probably be the last to access protection while pharmaceutical companies and agribusiness giants negotiate licensing deals and government contracts.\n\nReal pandemic prevention doesn't come from high-tech nasal sprays—it comes from dismantling the industrial agriculture system that turns living beings into disease factories. Community-controlled food systems, worker ownership of production, and direct action against corporate agriculture would do more to prevent the next pandemic than any vaccine developed within this rotten system. But that would require admitting that the problem isn't technical—it's the entire structure of power that prioritizes profit over life.",
-      "category": "Science",
+      "id": "1770325951624-anarchist-nfx27w",
+      "headline": "State Terror Machine Breaks Down Under Its Own Violence",
+      "excerpt": "Federal agents killing Americans while violating court orders exposes the inherent brutality of all state enforcement apparatus.",
+      "fullText": "The death of two Americans at the hands of federal immigration agents in Minneapolis strips away any illusion that state violence can be reformed or regulated. The same system that shoots people in the streets for the 'crime' of migration predictably cannot follow its own legal procedures. This isn't a bug – it's the feature of every enforcement apparatus designed to protect property and privilege through force.\n\nWhen the state's own attorney calls her job crushing because the agency systematically violates court orders, it reveals what anarchists have always known: legal institutions exist to legitimize violence, not constrain it. The chief federal judge documenting unprecedented violations while people die in the streets shows how judicial oversight becomes complicit in state terror by maintaining the fiction of accountability.\n\nCommunities defending themselves through mutual aid, sanctuary networks, and direct action point toward genuine alternatives to state violence. Every courthouse vigil, every rapid response network, every act of solidarity demonstrates that security comes from collective care, not cages and borders. The system isn't broken – it's working exactly as designed. The breakdown in Minneapolis simply makes visible the violence that sustains every border, every detention center, every badge and uniform that claims authority over human movement and survival.",
+      "category": "Politics",
       "persona": "reckoner",
       "personaName": "Reckoner",
       "perspective": "anarchist",
-      "publishedAt": "2026-02-05T15:22:45.283Z",
-      "imageUrl": "/images/articles/1770305198941-anarchist.png",
+      "publishedAt": "2026-02-05T21:12:25.623Z",
+      "imageUrl": null,
       "sources": [
         {
-          "title": "SciTechDaily - Science, Space and Technology News 2026",
-          "url": "https://scitechdaily.com/"
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
         },
         {
-          "title": "Breaking News -- ScienceDaily",
-          "url": "https://www.sciencedaily.com/breaking/"
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
         },
         {
-          "title": "ScienceDaily: Your source for the latest research news",
-          "url": "https://www.sciencedaily.com/"
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
         },
         {
-          "title": "Sci.News: Breaking Science News",
-          "url": "https://www.sci.news/"
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
         },
         {
-          "title": "Top Tech News Today, February 5, 2026 - Tech Startups",
-          "url": "https://techstartups.com/2026/02/05/top-tech-news-today-february-5-2026/"
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
         }
       ]
     }
@@ -246,6 +246,6 @@
     "attribution": "Intelligence Editorial Board"
   },
   "perspective": "mixed",
-  "publishedAt": "2026-02-05T15:27:29.375Z",
+  "publishedAt": "2026-02-05T21:16:59.625Z",
   "date": "2026-02-05"
 }

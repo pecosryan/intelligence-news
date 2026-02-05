@@ -1,6 +1,278 @@
 {
   "articles": [
     {
+      "id": "1770325951624-center-sgcy4o",
+      "headline": "Government Reopens as Congress Faces DHS Funding Deadline",
+      "excerpt": "President Trump signed legislation ending the weekend shutdown, but gave DHS only two weeks of funding amid ongoing Minneapolis immigration enforcement disputes.",
+      "fullText": "President Trump signed into law Tuesday a funding package that ended the brief government shutdown that began Saturday, though the Department of Homeland Security received only a two-week extension amid ongoing controversies. The limited funding comes as federal immigration enforcement operations in Minneapolis face mounting criticism from federal judges and lawmakers.\n\nThe crisis centers on Immigration and Customs Enforcement operations in the Twin Cities, where an ICE attorney was recently removed after telling a judge the job 'sucks' due to crushing workloads and the agency's apparent inability to comply with court orders. The chief federal judge in Minnesota stated that ICE has 'likely violated more court orders in January 2026 than some federal agencies have violated in their entire existence.'\n\nCongress now has ten days to negotiate a longer-term DHS funding agreement, with Democrats demanding reforms to immigration enforcement agencies. The Trump administration has signaled potential flexibility, with the President telling NBC News his administration could use 'a softer touch' in Minneapolis operations.",
+      "category": "Politics",
+      "persona": "meridian",
+      "personaName": "Meridian",
+      "perspective": "center",
+      "publishedAt": "2026-02-05T21:12:31.623Z",
+      "imageUrl": "/images/articles/1770325973272-center.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-centerLeft-4ukv9t",
+      "headline": "Court Violations Force Reckoning on Immigration Enforcement",
+      "excerpt": "Widespread judicial findings of ICE non-compliance in Minneapolis highlight the need for evidence-based reforms to immigration enforcement practices.",
+      "fullText": "The brief government shutdown and subsequent two-week DHS funding extension represent a crucial opportunity to address systemic problems in immigration enforcement that have reached a breaking point in Minneapolis. Federal judges have documented extensive violations of court orders by ICE, with Minnesota's chief federal judge noting the agency has violated more orders in one month than most agencies do in their entire existence.\n\nThe removal of an ICE attorney who publicly complained about the agency's inability to follow legal procedures underscores the need for comprehensive reform based on expert recommendations and judicial oversight. Research consistently shows that community-based alternatives to detention are more cost-effective and humane while maintaining high compliance rates with immigration proceedings.\n\nPresident Trump's acknowledgment that his administration could use 'a softer touch' suggests recognition that current enforcement strategies are counterproductive. Congress should seize this moment to implement evidence-based reforms that ensure both legal compliance and effective immigration policy, drawing on successful models from states that have balanced enforcement with community integration.",
+      "category": "Politics",
+      "persona": "caliber",
+      "personaName": "Caliber",
+      "perspective": "centerLeft",
+      "publishedAt": "2026-02-05T21:12:30.623Z",
+      "imageUrl": "/images/articles/1770326009823-centerLeft.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-centerRight-yhnl6o",
+      "headline": "Immigration Enforcement Crisis Demands Efficient Solutions",
+      "excerpt": "Operational failures in Minneapolis immigration enforcement highlight need for streamlined, legally compliant processes that respect both law and taxpayer resources.",
+      "fullText": "The government shutdown and ongoing Minneapolis immigration enforcement crisis reveal concerning operational inefficiencies that waste taxpayer dollars while failing to uphold the rule of law. When federal agencies cannot comply with basic court orders, it undermines both fiscal responsibility and legal authority that conservative governance demands.\n\nThe removal of an ICE attorney who complained about crushing workloads and legal violations points to management failures that any well-run organization would find unacceptable. Effective immigration enforcement requires competent administration, not just tough rhetoric. The chief federal judge's observation about unprecedented court violations demonstrates a breakdown in basic governmental function.\n\nPresident Trump's suggestion of 'a softer touch' may reflect recognition that current operations lack the efficiency and legal compliance necessary for sustainable policy. Congress should focus on streamlining processes, ensuring adequate training and resources, and establishing clear accountability measures. Effective enforcement serves national interests, but it must be conducted with the professional competence Americans expect from their government institutions.",
+      "category": "Politics",
+      "persona": "sentinel",
+      "personaName": "Sentinel",
+      "perspective": "centerRight",
+      "publishedAt": "2026-02-05T21:12:29.623Z",
+      "imageUrl": "/images/articles/1770326042102-centerRight.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-left-axk2zu",
+      "headline": "State Violence Escalates as Communities Resist Immigration Raids",
+      "excerpt": "Federal agents' fatal shooting of two Americans in Minneapolis exposes the human cost of militarized immigration enforcement targeting vulnerable communities.",
+      "fullText": "The government shutdown that ended Tuesday cannot obscure the human tragedy unfolding in Minneapolis, where federal agents fatally shot two Americans during escalating immigration enforcement operations. These deaths represent the predictable outcome of militarizing immigration policy and treating immigrant communities as enemy territory rather than neighbors seeking safety and dignity.\n\nThe removal of an ICE attorney who called her job crushing reveals the systemic cruelty baked into current enforcement priorities. When even government lawyers acknowledge they cannot comply with basic legal protections, it exposes how the immigration system has been weaponized against vulnerable populations. The chief federal judge's documentation of unprecedented legal violations shows how enforcement agencies operate with impunity, treating constitutional rights as obstacles rather than foundational principles.\n\nCommunities across Minneapolis have organized mutual aid networks, know-your-rights trainings, and sanctuary support precisely because they understand the government will not protect them. Trump's suggestion of 'a softer touch' rings hollow after years of family separation, workplace raids, and now deadly force. Real justice requires dismantling the detention-deportation pipeline and investing those billions in community-based solutions that treat migration as a human right, not a criminal act.",
+      "category": "Politics",
+      "persona": "vanguard",
+      "personaName": "Vanguard",
+      "perspective": "left",
+      "publishedAt": "2026-02-05T21:12:28.623Z",
+      "imageUrl": "/images/articles/1770326074175-left.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-right-m3wotw",
+      "headline": "Broken System Fails American Workers, Needs Common Sense Fix",
+      "excerpt": "Elite mismanagement of immigration enforcement hurts working families while bureaucrats can't even follow basic rules.",
+      "fullText": "Once again, the Washington swamp has proven it can't do the basics right. American taxpayers fund immigration enforcement to protect our communities and jobs, but bureaucrats in Minneapolis can't even follow simple court orders. When your own lawyer says the job 'sucks' because the system is broken, that's not immigration enforcement – that's government failure.\n\nHardworking Americans deserve better than agencies that violate more court orders in one month than most do in decades. While families struggle with inflation and job competition, our own government can't run a competent operation to enforce laws that protect American workers. The brief shutdown happened because politicians won't fix what's obviously broken.\n\nPresident Trump recognizing the need for 'a softer touch' shows he listens to regular people, not just Washington insiders. But soft doesn't mean weak – it means smart. Americans want immigration laws enforced fairly and effectively, not the current mess that helps no one. Congress needs to stop playing politics and give our enforcement agencies the tools and leadership they need to do their jobs right. American families are counting on it.",
+      "category": "Politics",
+      "persona": "tribune",
+      "personaName": "Tribune",
+      "perspective": "right",
+      "publishedAt": "2026-02-05T21:12:27.623Z",
+      "imageUrl": "/images/articles/1770326106437-right.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-libertarian-1bu9as",
+      "headline": "Federal Overreach Triggers Constitutional Crisis in Minneapolis",
+      "excerpt": "Systematic court violations and deadly force highlight dangerous expansion of federal police powers threatening individual liberty for all Americans.",
+      "fullText": "The Minneapolis immigration enforcement crisis represents a textbook case of federal overreach threatening constitutional principles that protect every American's liberty. When Immigration and Customs Enforcement violates more court orders in one month than most agencies do in their entire existence, it demonstrates how unchecked government power inevitably leads to lawlessness by the very institutions meant to enforce law.\n\nThe fatal shooting of two Americans by federal agents during immigration operations should alarm anyone concerned about the militarization of domestic law enforcement. These agencies operate with qualified immunity and broad discretionary powers that would be unthinkable in private enterprise. The removal of an ICE attorney who complained about systemic legal violations shows how bureaucratic momentum crushes individual accountability.\n\nRather than expanding funding for agencies that cannot operate within constitutional constraints, Congress should dramatically scale back federal immigration enforcement and return these responsibilities to states and local communities. Market-based solutions like expanded guest worker programs would address labor needs without creating the surveillance state apparatus that threatens everyone's civil liberties. The Constitution's limitations on federal power exist precisely to prevent the kind of enforcement crisis now unfolding in Minneapolis.",
+      "category": "Politics",
+      "persona": "sovereign",
+      "personaName": "Sovereign",
+      "perspective": "libertarian",
+      "publishedAt": "2026-02-05T21:12:26.623Z",
+      "imageUrl": "/images/articles/1770326142509-libertarian.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-anarchist-nfx27w",
+      "headline": "State Terror Machine Breaks Down Under Its Own Violence",
+      "excerpt": "Federal agents killing Americans while violating court orders exposes the inherent brutality of all state enforcement apparatus.",
+      "fullText": "The death of two Americans at the hands of federal immigration agents in Minneapolis strips away any illusion that state violence can be reformed or regulated. The same system that shoots people in the streets for the 'crime' of migration predictably cannot follow its own legal procedures. This isn't a bug – it's the feature of every enforcement apparatus designed to protect property and privilege through force.\n\nWhen the state's own attorney calls her job crushing because the agency systematically violates court orders, it reveals what anarchists have always known: legal institutions exist to legitimize violence, not constrain it. The chief federal judge documenting unprecedented violations while people die in the streets shows how judicial oversight becomes complicit in state terror by maintaining the fiction of accountability.\n\nCommunities defending themselves through mutual aid, sanctuary networks, and direct action point toward genuine alternatives to state violence. Every courthouse vigil, every rapid response network, every act of solidarity demonstrates that security comes from collective care, not cages and borders. The system isn't broken – it's working exactly as designed. The breakdown in Minneapolis simply makes visible the violence that sustains every border, every detention center, every badge and uniform that claims authority over human movement and survival.",
+      "category": "Politics",
+      "persona": "reckoner",
+      "personaName": "Reckoner",
+      "perspective": "anarchist",
+      "publishedAt": "2026-02-05T21:12:25.623Z",
+      "imageUrl": null,
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
+      "id": "1770325951624-accelerationist-8of6l8",
+      "headline": "Administrative Breakdown Signals Phase Transition in State Capacity",
+      "excerpt": "Systematic institutional failure in Minneapolis demonstrates terminal contradictions in legacy governance systems facing demographic and technological pressures.",
+      "fullText": "The Minneapolis enforcement crisis represents a predictable breakdown in administrative capacity as analog bureaucratic systems encounter digital-age complexity. When immigration enforcement generates more court violations in one month than most agencies accumulate over decades, it signals not policy failure but systemic phase transition – the institutional equivalent of a cascade failure in complex adaptive systems.\n\nThe removal of an ICE attorney citing workload impossibility reflects deeper algorithmic incompatibilities between legal frameworks designed for 19th-century demographics and contemporary population flows accelerated by climate change, economic disruption, and network effects. Traditional enforcement models scale poorly against distributed resistance networks and real-time coordination technologies that make communities increasingly ungovernable through centralized force.\n\nTrump's acknowledgment of needing 'a softer touch' indicates elite recognition that current state capacity cannot process the contradictions it has generated. The two-week funding window creates artificial scarcity that will likely accelerate either adaptive mutation in governance forms or further breakdown cascades. Historical precedent suggests that administrative systems experiencing this degree of internal contradiction typically reorganize around entirely different operational principles within 18-36 month windows. The Minneapolis breakdown may represent an early indicator of broader state capacity phase transitions accelerating across multiple domains simultaneously.",
+      "category": "Politics",
+      "persona": "vector",
+      "personaName": "Vector",
+      "perspective": "accelerationist",
+      "publishedAt": "2026-02-05T21:12:24.623Z",
+      "imageUrl": "/images/articles/1770326203909-accelerationist.png",
+      "sources": [
+        {
+          "title": "Politics : NPR",
+          "url": "https://www.npr.org/sections/politics/"
+        },
+        {
+          "title": "February 2, 2026 - Trump administration news | CNN Politics",
+          "url": "https://www.cnn.com/politics/live-news/trump-administration-news-02-02-26"
+        },
+        {
+          "title": "House votes to end government shutdown, buy time for ICE talks - The Washington Post",
+          "url": "https://www.washingtonpost.com/politics/2026/02/03/house-vote-end-government-shutdown/"
+        },
+        {
+          "title": "CBS News | Breaking news, top stories & today's latest headlines",
+          "url": "https://www.cbsnews.com/"
+        },
+        {
+          "title": "Trump signs bill to end government shutdown and fund DHS for two weeks",
+          "url": "https://www.nbcnews.com/politics/congress/house-path-end-government-shutdown-tuesday-dhs-trump-rcna257138"
+        }
+      ]
+    },
+    {
       "id": "1770304971284-center-m05ekw",
       "headline": "New Nasal Bird Flu Vaccine Shows Promise in Animal Studies",
       "excerpt": "Researchers report successful animal trials of a nasal spray H5N1 vaccine that outperformed traditional injections. The development comes as bird flu cases continue to rise in both animals and humans.",
@@ -2125,7 +2397,7 @@
       "publishedAt": "2026-02-04T15:53:00.000Z"
     }
   ],
-  "lastUpdated": "2026-02-05T15:27:29.374Z",
+  "lastUpdated": "2026-02-05T21:16:59.625Z",
   "config": {
     "heroAge": 6,
     "secondaryAge": 12,
