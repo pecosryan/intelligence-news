@@ -1069,7 +1069,14 @@ export default function Intelligence() {
                         }}
                       >
                         <p style={styles.category}>{item.category}</p>
-                        <h5 style={styles.headlineSmall}>{item.headline}</h5>
+                        <h5
+                          style={{ ...styles.headlineSmall, cursor: 'pointer' }}
+                          onClick={() => selectArticle(item)}
+                          onMouseEnter={(e) => (e.target.style.color = accentColor)}
+                          onMouseLeave={(e) => (e.target.style.color = colors.text)}
+                        >
+                          {item.headline}
+                        </h5>
                       </div>
                     ))}
                   </div>
