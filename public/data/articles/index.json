@@ -1,13 +1,22 @@
 {
-  "lastUpdated": null,
-  "totalArticles": 0,
-  "editions": [],
+  "lastUpdated": "2026-02-05T06:27:58.720Z",
+  "totalArticles": 7,
+  "editions": [
+    {
+      "date": "2026-02-05",
+      "publishedAt": "2026-02-05T06:27:58.720Z",
+      "perspective": "center",
+      "heroHeadline": "US-Iran Nuclear Talks Salvaged After Brief Cancellation as Regional Powers Intervene",
+      "articleCount": 7,
+      "path": "/data/articles/archive/2026/02/05/edition.json"
+    }
+  ],
   "categories": {
-    "World": 0,
-    "Business": 0,
-    "Technology": 0,
-    "Politics": 0,
-    "Science": 0,
-    "Culture": 0
+    "World": 2,
+    "Business": 1,
+    "Technology": 1,
+    "Politics": 1,
+    "Science": 1,
+    "Culture": 1
   }
 }
