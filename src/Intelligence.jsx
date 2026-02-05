@@ -54,28 +54,6 @@ export default function Intelligence() {
     }
   };
 
-  // Handle URL hash on load and when pool loads
-  useEffect(() => {
-    const handleHash = () => {
-      const hash = window.location.hash;
-      if (hash.startsWith('#article/') && articlePool?.articles) {
-        const articleId = hash.replace('#article/', '');
-        const article = articlePool.articles.find(a => a.id === articleId);
-        if (article) {
-          setSelectedArticle(article);
-        }
-      }
-    };
-
-    // Check hash when pool loads
-    if (articlePool?.articles) {
-      handleHash();
-    }
-
-    // Listen for back/forward navigation
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
-  }, [articlePool]);
   const fonts = THEME_FONTS[theme];
   const currentPerspective = PERSPECTIVES[perspective];
 
@@ -173,6 +151,29 @@ export default function Intelligence() {
       }
     }
   }, [perspective, articlePool]);
+
+  // Handle URL hash on load and when pool loads
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#article/') && articlePool?.articles) {
+        const articleId = hash.replace('#article/', '');
+        const article = articlePool.articles.find(a => a.id === articleId);
+        if (article) {
+          setSelectedArticle(article);
+        }
+      }
+    };
+
+    // Check hash when pool loads
+    if (articlePool?.articles) {
+      handleHash();
+    }
+
+    // Listen for back/forward navigation
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [articlePool]);
 
   // Save preferences when theme or perspective changes
   useEffect(() => {
