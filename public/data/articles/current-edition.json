@@ -1,54 +1,251 @@
 {
   "hero": {
+    "id": "1770337884458-center-slvaua",
+    "headline": "New START Treaty Expires, Removing Nuclear Limits on US and Russia",
+    "excerpt": "The last remaining nuclear arms control agreement between the superpowers ended February 5, leaving both nations free to expand arsenals without treaty constraints.",
+    "fullText": "The New START Treaty between the United States and Russia officially expired on February 5, 2026, marking the end of the last nuclear arms control agreement constraining the world's two largest nuclear arsenals. The treaty's expiration removes legal limits on both nations' nuclear weapons stockpiles and deployment capabilities.\n\nThe development comes amid escalating tensions, including Russia's recent launch of 450 drones and 70 missiles targeting Ukraine's power grid on February 3rd. However, diplomatic channels remain open, with Russia-US-Ukraine talks continuing in Abu Dhabi, suggesting potential paths forward despite the treaty's lapse.\n\nArms control experts across the political spectrum express concern about returning to an era of unrestricted nuclear competition, while policymakers debate whether new frameworks can be established to maintain strategic stability between the nuclear superpowers.",
     "category": "World",
-    "headline": "New START Nuclear Treaty Expires as US-Russia Tensions Peak",
     "persona": "meridian",
-    "excerpt": "The last remaining nuclear arms limitation treaty between the United States and Russia expired today, marking what UN Secretary-General Antonio Guterres called 'a grave moment for international peace and security.' The expiration comes amid ongoing trilateral negotiations between Russia, the US, and Ukraine in Abu Dhabi.",
-    "fullText": "The New START treaty, the final nuclear arms control agreement between the world's two largest nuclear powers, officially expired today, leaving no formal constraints on American and Russian nuclear arsenals for the first time in decades. United Nations Secretary-General Antonio Guterres characterized the moment as grave for international peace and security, reflecting widespread concerns about the implications for global stability.\n\nThe treaty's expiration occurs against a backdrop of complex diplomatic maneuvering. Trilateral negotiations between Russian, American, and Ukrainian delegations continue for a second day in Abu Dhabi, though specific details of the discussions remain undisclosed to the public. The timing of these talks alongside the treaty's end underscores the interconnected nature of current geopolitical tensions.\n\nMeanwhile, President Trump engaged in direct diplomacy with Chinese leader Xi Jinping, discussing concerns including Iran, trade relations, and Taiwan tensions. This conversation reflects the broader web of international relationships that could be affected by the absence of US-Russia nuclear limitations.\n\nArms control experts have long warned that the expiration of New START would eliminate transparency measures and inspection protocols that have provided stability for over a decade. Both nations now face decisions about whether to pursue new agreements or allow an unrestricted nuclear competition to develop.\n\nThe international community watches closely as diplomatic efforts continue on multiple fronts, with the outcome potentially reshaping the global security architecture for years to come."
+    "personaName": "Meridian",
+    "perspective": "center",
+    "publishedAt": "2026-02-06T00:31:24.458Z",
+    "imageUrl": "/images/articles/1770337906393-center.png",
+    "sources": [
+      {
+        "title": "UN News Today 04 February 2026 | | UN News",
+        "url": "https://news.un.org/en/audio/2026/02/1166887"
+      },
+      {
+        "title": "World News and International Headlines : NPR",
+        "url": "https://www.npr.org/sections/world/"
+      },
+      {
+        "title": "Early Edition: February 3, 2026",
+        "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+      },
+      {
+        "title": "Breaking News, World News and Video from Al Jazeera",
+        "url": "https://www.aljazeera.com/"
+      },
+      {
+        "title": "Major World Events by Morning of February 5 - Pravda USA",
+        "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+      }
+    ]
   },
   "secondary": [
     {
-      "category": "Politics",
-      "headline": "Iran-US Nuclear Talks Proceed Despite Earlier Uncertainty",
-      "persona": "dispatch",
-      "excerpt": "Iran's Foreign Minister confirmed nuclear negotiations with the US will proceed tomorrow in Oman after earlier indications suggested the talks might be in jeopardy. President Trump has threatened military action if Tehran refuses to negotiate an end to its nuclear weapons program.",
-      "fullText": "Iranian Foreign Minister Abbas Araghchi confirmed that planned nuclear talks between Iran and the United States will move forward tomorrow in Oman, despite earlier signals that the negotiations might face delays or cancellation. The confirmation comes as tensions between the two nations remain elevated over Iran's nuclear program.\n\nPresident Trump has escalated pressure on Tehran by threatening military action if Iran does not agree to negotiate an end to its nuclear weapons development. This ultimatum adds urgency to the diplomatic proceedings, with both sides facing significant stakes in the outcome of the discussions.\n\nThe talks represent a critical juncture in US-Iran relations, coming at a time when broader Middle Eastern dynamics remain volatile. Previous negotiations have faced numerous obstacles, including disagreements over sanctions relief, verification measures, and the scope of Iran's nuclear activities.\n\nDiplomatic observers note that successful negotiations would require compromise from both parties, with Iran seeking sanctions relief and the US demanding verifiable constraints on nuclear development. The international community, including European allies and regional partners, continues to support diplomatic solutions while preparing for various contingencies."
+      "id": "1770337884458-centerLeft-yvf8t2",
+      "headline": "Nuclear Arms Control Collapse Demands Urgent Diplomatic Response",
+      "excerpt": "Experts warn the New START Treaty's expiration creates dangerous uncertainty that requires immediate multilateral engagement and evidence-based policy solutions.",
+      "fullText": "The expiration of the New START Treaty on February 5 represents a critical failure of international diplomacy that threatens global security architecture built over decades. Arms control specialists emphasize that without binding agreements, both the US and Russia could begin unrestricted nuclear buildups, undermining strategic stability and setting a dangerous precedent for other nuclear powers.\n\nThis development particularly concerns European allies and non-proliferation advocates, who argue that the breakdown of bilateral arms control could cascade into broader treaty regime failures. The timing, coinciding with intensified attacks on Ukrainian infrastructure, underscores how bilateral tensions can derail carefully constructed international frameworks.\n\nPolicy experts recommend immediate engagement through multilateral institutions, potentially involving China and other stakeholders in new arms control negotiations. The ongoing Abu Dhabi talks offer hope, but success will require evidence-based approaches that prioritize verification mechanisms and gradual confidence-building measures over political grandstanding.",
+      "category": "World",
+      "persona": "horizon",
+      "personaName": "Horizon",
+      "perspective": "centerLeft",
+      "publishedAt": "2026-02-06T00:31:23.458Z",
+      "imageUrl": "/images/articles/1770337936838-centerLeft.png",
+      "sources": [
+        {
+          "title": "UN News Today 04 February 2026 | | UN News",
+          "url": "https://news.un.org/en/audio/2026/02/1166887"
+        },
+        {
+          "title": "World News and International Headlines : NPR",
+          "url": "https://www.npr.org/sections/world/"
+        },
+        {
+          "title": "Early Edition: February 3, 2026",
+          "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+        },
+        {
+          "title": "Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/"
+        },
+        {
+          "title": "Major World Events by Morning of February 5 - Pravda USA",
+          "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+        }
+      ]
     },
     {
-      "category": "Business",
-      "headline": "Markets Tumble as Alphabet AI Spending Projections Rattle Investors",
-      "persona": "fulcrum",
-      "excerpt": "U.S. equities declined sharply with the Dow falling 592 points as Alphabet projected AI capital expenditures could reach $185 billion in 2026. The S&P 500 entered negative territory for the year following the tech giant's spending warning.",
-      "fullText": "U.S. stock markets experienced significant declines as investors adopted a risk-off approach following concerning earnings projections from major technology companies. The Dow Jones Industrial Average dropped 592.58 points, or 1.20%, closing at 48,908.72, while the S&P 500 fell 1.23% to 6,798.40, entering negative territory for the year.\n\nAlphabet, the latest of the 'Magnificent Seven' tech companies to report earnings, particularly unsettled investors with projections of artificial intelligence spending reaching up to $185 billion in capital expenditures for 2026. This dramatic increase in AI infrastructure investment represents one of the largest corporate spending commitments in technology history.\n\nThe Nasdaq Composite bore the brunt of technology sector concerns, declining 1.59% to settle at 22,540.59. Market analysts note that while AI investment reflects long-term growth potential, the scale of projected spending raises questions about near-term profitability and return on investment for major technology firms.\n\nThe broader market reaction suggests investor uncertainty about whether massive AI investments will generate proportional returns. Technology companies face the challenge of balancing growth investments with shareholder expectations, particularly as competition in artificial intelligence intensifies across the sector."
+      "id": "1770337884458-centerRight-5djtc7",
+      "headline": "America Must Strengthen Nuclear Deterrent as Russia Breaks Treaties",
+      "excerpt": "With arms control agreements ending, the US should prioritize military readiness and allied partnerships to maintain strength through proven deterrence principles.",
+      "fullText": "The New START Treaty's expiration on February 5 confirms what many defense analysts have long warned: Russia cannot be trusted to honor long-term strategic commitments. With Moscow's recent massive missile barrage against Ukrainian civilians and infrastructure, it's clear that only American strength and resolve can deter further Russian aggression and protect our allies.\n\nThis moment demands fiscal responsibility paired with strategic investment in America's nuclear deterrent capabilities. Rather than rushing into new agreements that Russia will likely violate, the US should focus on modernizing its nuclear arsenal while strengthening partnerships with NATO allies and Indo-Pacific partners who share democratic values and free-market principles.\n\nThe ongoing diplomatic talks in Abu Dhabi may yield results, but history shows that negotiations succeed only when backed by credible deterrence. America's proven track record of responsible nuclear stewardship, combined with our alliance system, provides the best foundation for eventual arms control agreements that actually enhance rather than undermine national security.",
+      "category": "World",
+      "persona": "sentinel",
+      "personaName": "Sentinel",
+      "perspective": "centerRight",
+      "publishedAt": "2026-02-06T00:31:22.458Z",
+      "imageUrl": "/images/articles/1770337965649-centerRight.png",
+      "sources": [
+        {
+          "title": "UN News Today 04 February 2026 | | UN News",
+          "url": "https://news.un.org/en/audio/2026/02/1166887"
+        },
+        {
+          "title": "World News and International Headlines : NPR",
+          "url": "https://www.npr.org/sections/world/"
+        },
+        {
+          "title": "Early Edition: February 3, 2026",
+          "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+        },
+        {
+          "title": "Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/"
+        },
+        {
+          "title": "Major World Events by Morning of February 5 - Pravda USA",
+          "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+        }
+      ]
     }
   ],
   "sidebar": [
     {
-      "category": "Business",
-      "headline": "Washington Post Cuts 300 Journalists in Major Restructuring",
-      "persona": "dispatch"
-    },
-    {
-      "category": "Science",
-      "headline": "NASA Delays Artemis II Launch to March After Technical Issues",
-      "persona": "fulcrum"
-    },
-    {
+      "id": "1770337884458-left-ad7gna",
+      "headline": "Nuclear Escalation Threatens Global Communities as Superpowers Prioritize War",
+      "excerpt": "Working families worldwide face growing nuclear danger as military-industrial interests drive both Washington and Moscow toward arms race profiteering.",
+      "fullText": "The New START Treaty's collapse exposes how military-industrial complexes in both the US and Russia prioritize weapons profits over human security. While ordinary people struggle with healthcare costs, housing crises, and climate disasters, both governments prepare to spend trillions on nuclear weapons that primarily serve elite power interests rather than genuine security needs.\n\nThis escalation particularly threatens vulnerable communities globally—from Ukrainian civilians facing missile attacks to Indigenous peoples living near nuclear test sites and weapons facilities. The resources that will now flow toward nuclear buildup could instead address systemic inequalities, fund renewable energy transitions, and support international development programs that actually enhance human security.\n\nGrassroots peace movements and international solidarity networks must mobilize to demand nuclear disarmament and redirect military spending toward social needs. The Abu Dhabi talks, likely dominated by security establishment figures, need pressure from below to center community voices rather than corporate weapons manufacturers who profit from instability and arms races.",
       "category": "World",
-      "headline": "Nigeria Launches Military Operation After 162 Killed in Village Attacks",
-      "persona": "meridian"
+      "persona": "ember",
+      "personaName": "Ember",
+      "perspective": "left",
+      "publishedAt": "2026-02-06T00:31:21.458Z",
+      "imageUrl": "/images/articles/1770337995539-left.png",
+      "sources": [
+        {
+          "title": "UN News Today 04 February 2026 | | UN News",
+          "url": "https://news.un.org/en/audio/2026/02/1166887"
+        },
+        {
+          "title": "World News and International Headlines : NPR",
+          "url": "https://www.npr.org/sections/world/"
+        },
+        {
+          "title": "Early Edition: February 3, 2026",
+          "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+        },
+        {
+          "title": "Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/"
+        },
+        {
+          "title": "Major World Events by Morning of February 5 - Pravda USA",
+          "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+        }
+      ]
     },
     {
-      "category": "Politics",
-      "headline": "Border Czar Reduces Minneapolis Immigration Agents by 700",
-      "persona": "dispatch"
+      "id": "1770337884458-right-o177fw",
+      "headline": "Elite Diplomats Failed America While Russia Built Up Nuclear Arsenal",
+      "excerpt": "Washington's foreign policy establishment let another treaty expire while regular Americans face threats from unchecked Russian nuclear expansion.",
+      "fullText": "Once again, America's foreign policy elite have failed to protect ordinary working families, letting crucial arms control agreements collapse while Russia continues threatening our allies and homeland security. The New START Treaty's expiration shows what happens when Washington bureaucrats prioritize diplomatic photo-ops over results that actually keep Americans safe.\n\nWhile State Department officials attend endless meetings and summits, Russia launched 450 drones and 70 missiles at Ukrainian civilians, showing exactly what Putin thinks of diplomatic niceties. Regular Americans understand this simple truth: you can't negotiate with bullies from a position of weakness, and fancy treaties mean nothing if the other side won't honor them.\n\nThe Abu Dhabi talks might produce more empty promises, but American families need leaders who put America First and rebuild our nuclear deterrent through strength, not endless committee meetings. Common sense says we should modernize our weapons, support our allies, and make sure Russia knows that threatening America or our friends will cost them dearly.",
+      "category": "World",
+      "persona": "rampart",
+      "personaName": "Rampart",
+      "perspective": "right",
+      "publishedAt": "2026-02-06T00:31:20.458Z",
+      "imageUrl": "/images/articles/1770338027832-right.png",
+      "sources": [
+        {
+          "title": "UN News Today 04 February 2026 | | UN News",
+          "url": "https://news.un.org/en/audio/2026/02/1166887"
+        },
+        {
+          "title": "World News and International Headlines : NPR",
+          "url": "https://www.npr.org/sections/world/"
+        },
+        {
+          "title": "Early Edition: February 3, 2026",
+          "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+        },
+        {
+          "title": "Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/"
+        },
+        {
+          "title": "Major World Events by Morning of February 5 - Pravda USA",
+          "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+        }
+      ]
+    },
+    {
+      "id": "1770337884458-libertarian-vsmkqg",
+      "headline": "Nuclear Treaty Collapse Exposes Failure of Government-to-Government Diplomacy",
+      "excerpt": "The New START expiration demonstrates why centralized state agreements cannot deliver lasting security compared to market-based and civil society solutions.",
+      "fullText": "The New START Treaty's collapse perfectly illustrates the fundamental problems with government-controlled arms control regimes. Central planners in Washington and Moscow negotiated agreements that neither side had genuine incentives to maintain, while taxpayers in both countries funded massive nuclear bureaucracies that ultimately failed to deliver promised security benefits.\n\nRather than expanding government programs and military spending in response, policymakers should recognize that lasting stability comes from economic integration, technological innovation, and voluntary cooperation between civil societies. Private sector communication networks, trade relationships, and cultural exchanges create stronger incentives for peace than treaties enforced by the same governments that build the weapons.\n\nThe ongoing talks in Abu Dhabi represent more of the same failed approach: government officials making promises about other people's money and security. True nuclear risk reduction requires ending subsidies to weapons manufacturers, reducing military spending that crowds out private investment, and allowing market forces and individual liberty to create prosperity that makes war economically irrational.",
+      "category": "World",
+      "persona": "sovereign",
+      "personaName": "Sovereign",
+      "perspective": "libertarian",
+      "publishedAt": "2026-02-06T00:31:19.458Z",
+      "imageUrl": "/images/articles/1770338057715-libertarian.png",
+      "sources": [
+        {
+          "title": "UN News Today 04 February 2026 | | UN News",
+          "url": "https://news.un.org/en/audio/2026/02/1166887"
+        },
+        {
+          "title": "World News and International Headlines : NPR",
+          "url": "https://www.npr.org/sections/world/"
+        },
+        {
+          "title": "Early Edition: February 3, 2026",
+          "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+        },
+        {
+          "title": "Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/"
+        },
+        {
+          "title": "Major World Events by Morning of February 5 - Pravda USA",
+          "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+        }
+      ]
+    },
+    {
+      "id": "1770337884458-anarchist-5dwqj1",
+      "headline": "Nuclear States Drop Pretense as Arms Race Exposes Statist Death Cult",
+      "excerpt": "The treaty's end reveals what anarchists always knew: nation-states exist to threaten mass murder while ordinary people build actual security through mutual aid.",
+      "fullText": "The New START Treaty was always a sick joke—two death machines 'agreeing' on how many times they could destroy humanity while maintaining their monopoly on ultimate violence. Its expiration simply makes explicit what was always true: states exist to dominate and destroy, not protect people. The recent missile attacks on Ukrainian infrastructure show exactly what 'security' looks like under state protection.\n\nWhile nuclear-armed governments prepare for mass slaughter, real security comes from horizontal networks of mutual aid, community defense, and direct action that bypasses state authority entirely. Communities organizing food distribution, conflict mediation, and disaster response create actual resilience, unlike the protection racket that states call 'defense.'\n\nThe Abu Dhabi talks are theater for ruling class legitimacy—bureaucrats in suits negotiating humanity's survival like a business deal. Meanwhile, grassroots networks worldwide demonstrate daily that people can coordinate, share resources, and resolve conflicts without hierarchical violence. Every community garden, every neighborhood patrol, every strike against weapons manufacturers shows that we don't need nuclear-armed states to survive.",
+      "category": "World",
+      "persona": "reckoner",
+      "personaName": "Reckoner",
+      "perspective": "anarchist",
+      "publishedAt": "2026-02-06T00:31:18.458Z",
+      "imageUrl": "/images/articles/1770338090164-anarchist.png",
+      "sources": [
+        {
+          "title": "UN News Today 04 February 2026 | | UN News",
+          "url": "https://news.un.org/en/audio/2026/02/1166887"
+        },
+        {
+          "title": "World News and International Headlines : NPR",
+          "url": "https://www.npr.org/sections/world/"
+        },
+        {
+          "title": "Early Edition: February 3, 2026",
+          "url": "https://www.justsecurity.org/130541/early-edition-february-3-2026/"
+        },
+        {
+          "title": "Breaking News, World News and Video from Al Jazeera",
+          "url": "https://www.aljazeera.com/"
+        },
+        {
+          "title": "Major World Events by Morning of February 5 - Pravda USA",
+          "url": "https://usa.news-pravda.com/world/2026/02/05/650722.html"
+        }
+      ]
     }
   ],
   "quote": {
-    "text": "This is a grave moment for international peace and security. The expiration of New START leaves the world without crucial nuclear arms limitations at a time of heightened global tensions.",
-    "attribution": "Antonio Guterres, UN Secretary-General"
+    "text": "The news never stops, but wisdom requires perspective.",
+    "attribution": "Intelligence Editorial Board"
   },
-  "perspective": "center",
-  "publishedAt": "2026-02-05T22:07:16.283Z",
-  "date": "2026-02-05"
+  "perspective": "mixed",
+  "publishedAt": "2026-02-06T00:35:36.272Z",
+  "date": "2026-02-06"
 }
