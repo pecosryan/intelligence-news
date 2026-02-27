@@ -1,7 +1,15 @@
 {
-  "lastUpdated": "2026-02-05T22:07:16.283Z",
-  "totalArticles": 7,
+  "lastUpdated": "2026-02-27T00:18:13.084Z",
+  "totalArticles": 14,
   "editions": [
+    {
+      "date": "2026-02-27",
+      "publishedAt": "2026-02-27T00:18:13.084Z",
+      "perspective": "center",
+      "heroHeadline": "Nuclear Diplomacy Shows Cautious Progress as US-Iran Talks Conclude in Geneva",
+      "articleCount": 7,
+      "path": "/data/articles/archive/2026/02/27/edition.json"
+    },
     {
       "date": "2026-02-05",
       "publishedAt": "2026-02-05T22:07:16.283Z",
@@ -13,10 +21,10 @@
   ],
   "categories": {
     "World": 2,
-    "Business": 2,
-    "Technology": 0,
-    "Politics": 2,
+    "Business": 0,
+    "Technology": 2,
+    "Politics": 1,
     "Science": 1,
-    "Culture": 0
+    "Culture": 1
   }
 }
